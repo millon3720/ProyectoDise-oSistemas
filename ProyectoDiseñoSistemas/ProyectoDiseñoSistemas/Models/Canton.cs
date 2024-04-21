@@ -4,6 +4,7 @@
 
     public class Canton
     {
+        [Key]
         public int IdCanton { get; set; }
 
         [Required(ErrorMessage = "El nombre del cantón es requerido.")]

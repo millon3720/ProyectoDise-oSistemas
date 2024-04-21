@@ -5,6 +5,7 @@
 
     public class Pedidos
     {
+        [Key]
         public int IdPedidos { get; set; }
 
         public int IdProveedor { get; set; }

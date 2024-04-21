@@ -5,6 +5,7 @@
 
     public class Factura
     {
+        [Key]
         public int IdFactura { get; set; }
 
         public int IdProveedor { get; set; }

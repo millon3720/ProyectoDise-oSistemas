@@ -4,6 +4,7 @@
 
     public class ProductoPedido
     {
+        [Key]
         public int IdProductosPedidos { get; set; }
 
         public int IdPedidos { get; set; }

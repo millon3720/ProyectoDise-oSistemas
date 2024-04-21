@@ -4,6 +4,7 @@
 
     public class Distrito
     {
+        [Key]
         public int IdDistrito { get; set; }
 
         [Required(ErrorMessage = "El nombre del distrito es requerido.")]

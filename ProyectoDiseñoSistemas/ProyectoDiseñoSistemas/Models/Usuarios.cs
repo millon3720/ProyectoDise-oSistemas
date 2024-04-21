@@ -4,6 +4,7 @@
 
     public class Usuarios
     {
+        [Key]
         public int IdUsuario { get; set; }
 
         [Required(ErrorMessage = "La cédula del usuario es requerida.")]

@@ -4,6 +4,7 @@
 
     public class Provincia
     {
+        [Key]
         public int IdProvincia { get; set; }
 
         [Required(ErrorMessage = "El nombre de la provincia es requerido.")]

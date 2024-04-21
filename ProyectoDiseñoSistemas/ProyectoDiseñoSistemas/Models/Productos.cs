@@ -1,8 +1,10 @@
-﻿namespace ProyectoDiseñoSistemas.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace ProyectoDiseñoSistemas.Models
 {
-    using System.ComponentModel.DataAnnotations;
+    
     public class Productos
     {
+        [Key]
         public int IdProductos { get; set; }
 
         [Required(ErrorMessage = "El nombre del producto es requerido.")]

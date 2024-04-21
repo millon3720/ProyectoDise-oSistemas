@@ -4,6 +4,7 @@
 
     public class Proveedor
     {
+        [Key]
         public int IdProveedores { get; set; }
 
         [Required(ErrorMessage = "La cédula del proveedor es requerida.")]

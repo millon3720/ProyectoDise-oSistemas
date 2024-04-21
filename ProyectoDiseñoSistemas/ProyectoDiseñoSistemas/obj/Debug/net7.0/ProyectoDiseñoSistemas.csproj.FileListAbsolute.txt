@@ -249,3 +249,5 @@ C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\ProyectoDiseñoSistema
 C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\ProyectoDiseñoSistemas\ProyectoDiseñoSistemas\obj\Debug\net7.0\ProyectoDiseñoSistemas.pdb
 C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\ProyectoDiseñoSistemas\ProyectoDiseñoSistemas\obj\Debug\net7.0\ProyectoDiseñoSistemas.genruntimeconfig.cache
 C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\ProyectoDiseñoSistemas\ProyectoDiseñoSistemas\obj\Debug\net7.0\ref\ProyectoDiseñoSistemas.dll
+C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\ProyectoDiseñoSistemas\ProyectoDiseñoSistemas\bin\Debug\net7.0\dotnet-aspnet-codegenerator-design.dll
+C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\ProyectoDiseñoSistemas\ProyectoDiseñoSistemas\bin\Debug\net7.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll

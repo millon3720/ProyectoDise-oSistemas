@@ -1,12 +1,14 @@
-﻿namespace ProyectoDiseñoSistemas.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+namespace ProyectoDiseñoSistemas.Models
 {
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Collections.Generic;
+   
     public class ProductoFactura
     {
+        [Key]
         public int IdProductoFactura { get; set; }
 
         public int IdFactura { get; set; }

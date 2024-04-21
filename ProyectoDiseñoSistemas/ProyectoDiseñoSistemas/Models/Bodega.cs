@@ -4,6 +4,7 @@
 
     public class Bodega
     {
+        [Key]
         public int IdBodegas { get; set; }
 
         public int IdProvincia { get; set; }
