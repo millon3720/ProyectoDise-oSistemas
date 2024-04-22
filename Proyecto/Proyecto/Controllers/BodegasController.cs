@@ -29,22 +29,24 @@ namespace Proyecto.Controllers
         // GET: Bodegas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Bodegas == null)
-            {
-                return NotFound();
-            }
+            return View("Details");
 
-            var bodegas = await _context.Bodegas
-                .Include(b => b.Canton)
-                .Include(b => b.Distrito)
-                .Include(b => b.Provincia)
-                .FirstOrDefaultAsync(m => m.IdBodegas == id);
-            if (bodegas == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Bodegas == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(bodegas);
+            //var bodegas = await _context.Bodegas
+            //    .Include(b => b.Canton)
+            //    .Include(b => b.Distrito)
+            //    .Include(b => b.Provincia)
+            //    .FirstOrDefaultAsync(m => m.IdBodegas == id);
+            //if (bodegas == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return View(bodegas);
         }
 
         // GET: Bodegas/Create
