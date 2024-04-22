@@ -4,39 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalles de Bodega</h1>
 
-<div>
-    <h4>Bodegas</h4>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Bodegas</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.Provincia)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Provincia.Nombre)
+        <dd class = "col-sm-8">
+               Texto
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.Canton)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Canton.Nombre)
+        <dd class = "col-sm-8">
+                Texto
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.Distrito)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Distrito.Nombre)
+        <dd class = "col-sm-8">
+                Texto
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "col-sm-4">
             @Html.DisplayNameFor(model => model.DireccionExacta)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DireccionExacta)
+        <dd class = "col-sm-8">
+                Texto
         </dd>
-    </dl>
+     </dl>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdBodegas">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="mt-3">
+    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdBodegas">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary ml-2">Volver a la Lista</a>
 </div>
