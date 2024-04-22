@@ -78,20 +78,22 @@ namespace Proyecto.Controllers
         // GET: Bodegas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Bodegas == null)
-            {
-                return NotFound();
-            }
+            return View("Edit");
 
-            var bodegas = await _context.Bodegas.FindAsync(id);
-            if (bodegas == null)
-            {
-                return NotFound();
-            }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", bodegas.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", bodegas.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", bodegas.IdProvincia);
-            return View(bodegas);
+            //if (id == null || _context.Bodegas == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var bodegas = await _context.Bodegas.FindAsync(id);
+            //if (bodegas == null)
+            //{
+            //    return NotFound();
+            //}
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", bodegas.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", bodegas.IdDistrito);
+            //ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", bodegas.IdProvincia);
+            //return View(bodegas);
         }
 
         // POST: Bodegas/Edit/5
