@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\",
+  "WorkspaceRootPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FDC478ED-341C-4B50-9B49-F13AC7D6E32C}|Proyecto\\Proyecto.csproj|c:\\users\\josed\\onedrive\\escritorio\\proyecto\\proyecto\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{FDC478ED-341C-4B50-9B49-F13AC7D6E32C}|Proyecto\\Proyecto.csproj|c:\\users\\josed\\onedrive\\escritorio\\proyectodise-osistemas\\proyecto\\proyecto\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FDC478ED-341C-4B50-9B49-F13AC7D6E32C}|Proyecto\\Proyecto.csproj|solutionrelative:proyecto\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FDC478ED-341C-4B50-9B49-F13AC7D6E32C}|Proyecto\\Proyecto.csproj|c:\\users\\josed\\onedrive\\escritorio\\proyecto\\proyecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{FDC478ED-341C-4B50-9B49-F13AC7D6E32C}|Proyecto\\Proyecto.csproj|c:\\users\\josed\\onedrive\\escritorio\\proyectodise-osistemas\\proyecto\\proyecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FDC478ED-341C-4B50-9B49-F13AC7D6E32C}|Proyecto\\Proyecto.csproj|solutionrelative:proyecto\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -56,11 +56,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Proyecto\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Proyecto\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAA5AAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAswCoAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T01:05:33.693Z",
               "EditorCaption": ""
@@ -69,11 +69,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\Views\\Productos\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Views\\Productos\\Index.cshtml",
               "RelativeDocumentMoniker": "Proyecto\\Views\\Productos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\Views\\Productos\\Index.cshtml",
-              "RelativeToolTip": "Proyecto\\Views\\Productos\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAARAAAA",
+              "ToolTip": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Views\\Productos\\Index.cshtml*",
+              "RelativeToolTip": "Proyecto\\Views\\Productos\\Index.cshtml*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-22T00:44:05.815Z",
               "EditorCaption": ""

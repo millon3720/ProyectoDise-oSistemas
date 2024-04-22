@@ -9,299 +9,299 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Proyecto
 build_property.RootNamespace = Proyecto
-build_property.ProjectDir = C:\Users\josed\OneDrive\Escritorio\Proyecto\Proyecto\
+build_property.ProjectDir = C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\Proyecto\Proyecto\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\josed\OneDrive\Escritorio\Proyecto\Proyecto
+build_property.MSBuildProjectDirectory = C:\Users\josed\OneDrive\Escritorio\ProyectoDise-oSistemas\Proyecto\Proyecto
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Bodegas/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Bodegas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kZWdhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Bodegas/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Bodegas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kZWdhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Bodegas/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Bodegas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kZWdhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Bodegas/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Bodegas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kZWdhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Bodegas/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Bodegas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kZWdhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Cantons/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Cantons/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FudG9uc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Cantons/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Cantons/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FudG9uc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Cantons/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Cantons/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FudG9uc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Cantons/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Cantons/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FudG9uc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Cantons/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Cantons/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FudG9uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Distritoes/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Distritoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpdG9lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Distritoes/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Distritoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpdG9lc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Distritoes/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Distritoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpdG9lc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Distritoes/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Distritoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpdG9lc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Distritoes/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Distritoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzdHJpdG9lc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Facturas/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Facturas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Facturas/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Facturas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Facturas/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Facturas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Facturas/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Facturas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Facturas/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Facturas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Home/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Home/Privacy.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Pedidos/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Pedidos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Pedidos/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Pedidos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Pedidos/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Pedidos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Pedidos/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Pedidos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Pedidos/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Pedidos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoFacturas/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoFacturas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9GYWN0dXJhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoFacturas/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoFacturas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9GYWN0dXJhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoFacturas/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoFacturas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9GYWN0dXJhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoFacturas/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoFacturas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9GYWN0dXJhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoFacturas/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoFacturas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9GYWN0dXJhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoProveedores/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoProveedores/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9Qcm92ZWVkb3Jlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoProveedores/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoProveedores/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9Qcm92ZWVkb3Jlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoProveedores/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoProveedores/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9Qcm92ZWVkb3Jlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoProveedores/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoProveedores/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9Qcm92ZWVkb3Jlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductoProveedores/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductoProveedores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9Qcm92ZWVkb3Jlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosBodegas/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosBodegas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zQm9kZWdhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosBodegas/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosBodegas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zQm9kZWdhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosBodegas/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosBodegas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zQm9kZWdhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosBodegas/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosBodegas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zQm9kZWdhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosBodegas/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosBodegas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zQm9kZWdhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosPedidos/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosPedidos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUGVkaWRvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosPedidos/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosPedidos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUGVkaWRvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosPedidos/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosPedidos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUGVkaWRvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosPedidos/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosPedidos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUGVkaWRvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/ProductosPedidos/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/ProductosPedidos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zUGVkaWRvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Productos/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Productos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Productos/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Productos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Productos/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Productos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Productos/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Productos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Productos/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Productos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Proveedores/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Proveedores/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Proveedores/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Proveedores/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Proveedores/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Proveedores/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Proveedores/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Proveedores/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Proveedores/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Proveedores/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmVlZG9yZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Provincias/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Provincias/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmluY2lhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Provincias/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Provincias/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmluY2lhc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Provincias/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Provincias/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmluY2lhc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Provincias/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Provincias/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmluY2lhc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Provincias/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Provincias/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmluY2lhc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Shared/Error.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Usuarios/Create.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Usuarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Usuarios/Delete.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Usuarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Usuarios/Details.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Usuarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Usuarios/Edit.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Usuarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Usuarios/Index.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/_ViewImports.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/_ViewStart.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josed/OneDrive/Escritorio/Proyecto/Proyecto/Views/Shared/_Layout.cshtml]
+[C:/Users/josed/OneDrive/Escritorio/ProyectoDise-oSistemas/Proyecto/Proyecto/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-llr71ombjl

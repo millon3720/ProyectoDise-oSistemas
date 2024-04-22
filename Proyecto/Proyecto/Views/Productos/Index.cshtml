@@ -1,38 +1,42 @@
 ﻿@model IEnumerable<Proyecto.Models.Productos>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Productos";
     int contador = 0;
+    
 }
 
-<h1>Index</h1>
+<h1>Productos</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Agregar</a>
 </p>
 <table class="table table-striped table-hover">
     <thead>
         <tr class="table-dark table-primary">
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                Codigo Producto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Presentacion)
+                Descripcion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CantidadPresentacion)
+                Presentacion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TipoEmpaque)
+                Cantidad Presentacion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CantidadEmpaque)
+                Tipo Empaque
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Precio)
+                Cantidad Empaque
+            </th>
+            <th>
+                Precio
             </th>
             <th></th>
         </trc>
@@ -44,6 +48,9 @@
                 contador = 0;
                 <tr class="table-secondary">
                     <td>
+                        @Html.DisplayFor(modelItem => item.IdProductos)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Nombre)
                     </td>
                     <td>
@@ -65,9 +72,9 @@
                         @Html.DisplayFor(modelItem => item.Precio)
                     </td>
                     <td>
-                        <a asp-action="Edit" class="btn btn-warning"  asp-route-id="@item.IdProductos">Edit</a> |
-                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Details</a> |
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Delete</a>
+                        <a asp-action="Edit" class="btn btn-warning"  asp-route-id="@item.IdProductos">Editar</a> |
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Detalles</a> |
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Eliminar</a>
                     </td>
                 </tr>
             }
@@ -76,6 +83,9 @@
                 contador++;
                 <tr class="table-light">
                     <td>
+                        @Html.DisplayFor(modelItem => item.IdProductos)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Nombre)
                     </td>
                     <td>
@@ -97,9 +107,9 @@
                         @Html.DisplayFor(modelItem => item.Precio)
                     </td>
                     <td>
-                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProductos">Edit</a> |
-                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Details</a> |
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Delete</a>
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProductos">Editar</a> |
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Detalles</a> |
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Eliminar</a>
                     </td>
                 </tr>
             }
