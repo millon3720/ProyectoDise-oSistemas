@@ -4,60 +4,75 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles del Producto a Eliminar</h4>
+        <hr />
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Productos</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Presentacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Presentacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CantidadPresentacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CantidadPresentacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TipoEmpaque)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TipoEmpaque)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CantidadEmpaque)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CantidadEmpaque)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Precio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="IdProductos" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+        <dl class="row">
+            <dt class="col-sm-4">
+                Codigo Producto:
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.IdProductos)
+            </dd>
+            <dt class="col-sm-4">
+                Nombre:
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Descripcion):
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Presentacion):
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Presentacion)
+            </dd>
+            <dt class="col-sm-4">
+                Cantidad Presentacion:
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.CantidadPresentacion)
+            </dd>
+            <dt class="col-sm-4">
+                Tipo Empaque:
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.TipoEmpaque)
+            </dd>
+            <dt class="col-sm-4">
+                Cantidad Empaque:
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.CantidadEmpaque)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Precio):
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdProductos" />
+            <div class="form-group row justify-content-end">
+                <div class="col-sm-10">
+                    
+                    <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> 
+                </div>
+            </div>
+        </form>
+    </div>    
+      
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
 </div>
