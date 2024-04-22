@@ -4,40 +4,66 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles de Bodega</h4>
+        <hr />
 
-<h4>Bodegas</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdProvincia" class="control-label"></label>
-                <select asp-for="IdProvincia" class ="form-control" asp-items="ViewBag.IdProvincia"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdCanton" class="control-label"></label>
-                <select asp-for="IdCanton" class ="form-control" asp-items="ViewBag.IdCanton"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdDistrito" class="control-label"></label>
-                <select asp-for="IdDistrito" class ="form-control" asp-items="ViewBag.IdDistrito"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="DireccionExacta" class="control-label"></label>
-                <input asp-for="DireccionExacta" class="form-control" />
-                <span asp-validation-for="DireccionExacta" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+            <input type="hidden" asp-for="IdBodegas" />
 
-<div>
-    <a asp-action="Index">Back to List</a>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Provincia:</label>
+                <div class="col-sm-8">
+
+                    <select asp-for="IdProvincia" class="form-control" asp-items="ViewBag.IdProvincia"></select>
+                    <span asp-validation-for="IdProvincia" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Canton:</label>
+                <div class="col-sm-8">
+                    <select asp-for="IdCanton" class="form-control" asp-items="ViewBag.IdCanton"></select>
+                    <span asp-validation-for="IdCanton" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Distrito:</label>
+                <div class="col-sm-8">
+                    <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                    <span asp-validation-for="IdDistrito" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Direccion Exacta:</label>
+                <div class="col-sm-8">
+                    <input asp-for="DireccionExacta" class="form-control" />
+                    <span asp-validation-for="DireccionExacta" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Encargado:</label>
+                <div class="col-sm-8">
+                    <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                    <span asp-validation-for="Distrito" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary">Crear Bodega</button> |
+                    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
 </div>
 
 @section Scripts {
