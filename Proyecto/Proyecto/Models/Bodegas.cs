@@ -27,5 +27,6 @@ namespace Proyecto.Models
         public List<ProductosBodega> ProductosBodega { get; set; }
         
         public List<Usuarios> Usuarios { get; set; }
+
     }
 }
