@@ -11298,11 +11298,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\Proyecto.csproj",
+      "projectUniqueName": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj",
       "projectName": "Proyecto",
-      "projectPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\Proyecto.csproj",
+      "projectPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj",
       "packagesPath": "C:\\Users\\josed\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\Proyecto\\Proyecto\\obj\\",
+      "outputPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\josed\\AppData\\Roaming\\NuGet\\NuGet.Config",
