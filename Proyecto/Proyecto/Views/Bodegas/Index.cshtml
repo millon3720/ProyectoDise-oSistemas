@@ -35,60 +35,72 @@
         </tr>
     </thead>
     <tbody>
-
         <tr class="table-light">
+            <td>1</td>
+            <td>San José</td>
+            <td>San José</td>
+            <td>Carmen</td>
+            <td>Avenida 3, Calle 9</td>
+            <td>Juan Castillo</td>
             <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-               1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id= 1 >Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id= 1>Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id= 1 >Eliminar</a>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="1">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="1">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="1">Eliminar</a>
             </td>
         </tr>
-
         <tr class="table-secondary">
+            <td>2</td>
+            <td>Heredia</td>
+            <td>Heredia</td>
+            <td>Heredia</td>
+            <td>Avenida 2, Calle 5</td>
+            <td>Maria Fernández</td>
             <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                1
-            </td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id=1>Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id=1>Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id=1>Eliminar</a>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="2">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="2">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="2">Eliminar</a>
             </td>
         </tr>
-
- @foreach (var item in Model) {
+        <tr class="table-light">
+            <td>3</td>
+            <td>Alajuela</td>
+            <td>Alajuela</td>
+            <td>Alajuela</td>
+            <td>Avenida Central, Calle 3</td>
+            <td>Luis Salazar</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="3">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="3">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="3">Eliminar</a>
+            </td>
+        </tr>
+        <tr class="table-secondary">
+            <td>4</td>
+            <td>Cartago</td>
+            <td>Cartago</td>
+            <td>Cartago</td>
+            <td>Avenida 1, Calle 4</td>
+            <td>Ana Martínez</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="4">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="4">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="4">Eliminar</a>
+            </td>
+        </tr>
+        <tr class="table-light">
+            <td>5</td>
+            <td>Guanacaste</td>
+            <td>Libera</td>
+            <td>Belén</td>
+            <td>Avenida 4, Calle 7</td>
+            <td>Pedro Soto</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="5">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="5">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="5">Eliminar</a>
+            </td>
+        </tr>
+  @foreach (var item in Model) {
             @if (contador > 0)
             {
                 contador = 0;

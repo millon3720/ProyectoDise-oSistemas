@@ -16,8 +16,16 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Provincia:</label>
                 <div class="col-sm-8">
-                    
-                    <select asp-for="IdProvincia" class="form-control" asp-items="ViewBag.IdProvincia"></select>
+
+                    <select class="form-control" id="provincias">
+                        <option value="San José">San José</option>
+                        <option value="Alajuela">Alajuela</option>
+                        <option value="Cartago">Cartago</option>
+                        <option value="Heredia">Heredia</option>
+                        <option value="Guanacaste">Guanacaste</option>
+                        <option value="Puntarenas">Puntarenas</option>
+                        <option value="Limón">Limón</option>
+                    </select>
                     <span asp-validation-for="IdProvincia" class="text-danger"></span>
                 </div>
             </div>
@@ -25,7 +33,23 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Canton:</label>
                 <div class="col-sm-8">
-                    <select asp-for="IdCanton" class="form-control" asp-items="ViewBag.IdCanton"></select>
+                    <select class="form-control" id="cantonesAlajuela">
+                        <option value="Alajuela">Alajuela</option>
+                        <option value="San Ramón">San Ramón</option>
+                        <option value="Grecia">Grecia</option>
+                        <option value="San Mateo">San Mateo</option>
+                        <option value="Atenas">Atenas</option>
+                        <option value="Naranjo">Naranjo</option>
+                        <option value="Palmares">Palmares</option>
+                        <option value="Poás">Poás</option>
+                        <option value="Orotina">Orotina</option>
+                        <option value="San Carlos">San Carlos</option>
+                        <option value="Zarcero">Zarcero</option>
+                        <option value="Sarchí">Sarchí</option>
+                        <option value="Upala">Upala</option>
+                        <option value="Los Chiles">Los Chiles</option>
+                        <option value="Guatuso">Guatuso</option>
+                    </select>
                     <span asp-validation-for="IdCanton" class="text-danger"></span>
                 </div>
             </div>
@@ -33,7 +57,18 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Distrito:</label>
                 <div class="col-sm-8">
-                    <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                    <select class="form-control" id="distritosCR">
+                        <option value="San José">San José</option>
+                        <option value="Escazú">Escazú</option>
+                        <option value="Desamparados">Desamparados</option>
+                        <option value="Puriscal">Puriscal</option>
+                        <option value="Tibás">Tibás</option>
+                        <option value="Moravia">Moravia</option>
+                        <option value="Montes de Oca">Montes de Oca</option>
+                        <option value="Turrubares">Turrubares</option>
+                        <option value="Dota">Dota</option>
+                        <option value="Curridabat">Curridabat</option>
+                    </select>
                     <span asp-validation-for="IdDistrito" class="text-danger"></span>
                 </div>
             </div>
@@ -41,7 +76,7 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Direccion Exacta:</label>
                 <div class="col-sm-8">
-                    <input asp-for="DireccionExacta" class="form-control" />
+                    <input asp-for="DireccionExacta" class="form-control" value="200 mts este de la escuela"/>
                     <span asp-validation-for="DireccionExacta" class="text-danger"></span>
                 </div>
             </div>
@@ -49,11 +84,30 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Encargado:</label>
                 <div class="col-sm-8">
-                    <select asp-for="IdDistrito" class="form-control" asp-items="ViewBag.IdDistrito"></select>
+                    <select asp-for="IdBodegas" class="form-control" asp-items="ViewBag.Nombre">
+                        <option value="0">Seleccione un Proveedor</option>
+                        <option value="1">Jose Millon</option>
+                        <option value="2" selected>Daniel Marin</option>
+                        <option value="3">Pablo Sanchez</option>
+                        <option value="4">Isaac Núñez</option>
+                    </select>
                     <span asp-validation-for="Distrito" class="text-danger"></span>
                 </div>
             </div>
+            <div class="form-group row mb-3">
+                <label asp-for="IdBodegas" class="col-sm-4 col-form-label">Agregar Producto</label>
+                <div class="col-sm-8">
+                    <select asp-for="IdBodegas" class="form-control" asp-items="ViewBag.Nombre">
+                        <option value="0">Agregar Producto</option>
+                        <option value="1">Atún en lata</option>
+                        <option value="2">Melocotones enlatados</option>
+                        <option value="3">Maíz enlatado</option>
+                        <option value="4">Sardinas en lata</option>
 
+
+                    </select>
+                </div>
+            </div>
             
         </form>
 
@@ -62,111 +116,109 @@
 
 <br />
 <hr />
-<h4 class="card-title">Productos en bodegas</h4>
+<h4 class="card-title">Productos En Inventario</h4>
 <hr />
-
+<br />
 <table class="table table-striped table-hover">
     <thead>
         <tr class="table-dark table-primary">
-            <th>
-                Codigo Producto
-            </th>
-            <th>
-                Nombre
-            </th>
-            <th>
-                Descripcion
-            </th>
-            <th>
-                Presentacion
-            </th>
-            <th>
-                Cantidad Presentacion
-            </th>
-            <th>
-                Tipo Empaque
-            </th>
-            <th>
-                Cantidad Empaque
-            </th>
-            <th>
-                Precio
-            </th>
+            <th>Código Producto</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Presentación</th>
+            <th>Cantidad Presentación</th>
+            <th>Tipo Empaque</th>
+            <th>Cantidad Empaque</th>
+            <th>Precio (₡)</th>
             <th></th>
-            </trc>
+
+        </tr>
     </thead>
     <tbody>
         <tr class="table-secondary">
+            <td>1</td>
+            <td>Atún en lata</td>
+            <td>Atún en aceite de girasol</td>
+            <td>Lata</td>
+            <td>1 unidad</td>
+            <td>Caja</td>
+            <td>12 latas</td>
+            <td>2,500</td>
             <td>
-                texto
+                <input type="checkbox" id="checkbox1" name="checkbox1" value="valor1" checked />
             </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                <input type="checkbox" id="miCheckbox" name="miCheckbox" value="valor" />
-            </td>
-
         </tr>
-
-
-
-
         <tr class="table-light">
+            <td>2</td>
+            <td>Melocotones enlatados</td>
+            <td>Melocotones en conserva</td>
+            <td>Lata</td>
+            <td>1 unidad</td>
+            <td>Caja</td>
+            <td>24 latas</td>
+            <td>1,800</td>
             <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                texto
-            </td>
-            <td>
-                <input type="checkbox" id="miCheckbox" name="miCheckbox" value="valor" />
+                <input type="checkbox" id="checkbox2" name="checkbox2" value="valor2" checked />
             </td>
         </tr>
-
-
+        <tr class="table-secondary">
+            <td>3</td>
+            <td>Maíz enlatado</td>
+            <td>Maíz dulce en conserva</td>
+            <td>Lata</td>
+            <td>1 unidad</td>
+            <td>Caja</td>
+            <td>20 latas</td>
+            <td>1,600</td>
+            <td>
+                <input type="checkbox" id="checkbox3" name="checkbox3" value="valor3" checked />
+            </td>
+        </tr>
+        <tr class="table-light">
+            <td>4</td>
+            <td>Sardinas en lata</td>
+            <td>Sardinas en salsa de tomate</td>
+            <td>Lata</td>
+            <td>1 unidad</td>
+            <td>Caja</td>
+            <td>10 latas</td>
+            <td>2,200</td>
+            <td>
+                <input type="checkbox" id="checkbox4" name="checkbox4" value="valor4" checked />
+            </td>
+        </tr>
+        <tr class="table-secondary">
+            <td>5</td>
+            <td>Ensalada de frutas enlatada</td>
+            <td>Frutas variadas en almíbar</td>
+            <td>Lata</td>
+            <td>1 unidad</td>
+            <td>Caja</td>
+            <td>6 latas</td>
+            <td>1,500</td>
+            <td>
+                <input type="checkbox" id="checkbox5" name="checkbox5" value="valor5" checked />
+            </td>
+        </tr>
+        <tr class="table-light">
+            <td>6</td>
+            <td>Champiñones enlatados</td>
+            <td>Champiñones en conserva</td>
+            <td>Lata</td>
+            <td>1 unidad</td>
+            <td>Caja</td>
+            <td>15 latas</td>
+            <td>2,000</td>
+            <td>
+                <input type="checkbox" id="checkbox6" name="checkbox6" value="valor6" checked />
+            </td>
+        </tr>
     </tbody>
 </table>
-
+<br />
 
 <div class="form-group row">
-    <div class="col-sm-12 text-center">
+    <div class="col-sm-12">
         <button type="submit" class="btn btn-primary">Guardar Cambios</button> |
         <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
     </div>
