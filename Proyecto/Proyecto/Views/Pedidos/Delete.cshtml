@@ -1,39 +1,39 @@
 ﻿@model Proyecto.Models.Pedidos
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar";
 }
 
-<h1>Delete</h1>
+<h1>Eliminar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Pedidos</h4>
-    <hr />
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles del Pedido a Eliminar</h4>
+        <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProveedor)
+                Nombre Proveedor
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdProveedor)
+                "Nombre..."
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
+                Fecha
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
+                "Fecha"
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuario)
+                Nombre Usuario
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuario)
+                "Nombre..."
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdPedidos" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
     </form>
 </div>

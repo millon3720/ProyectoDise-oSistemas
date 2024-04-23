@@ -22,27 +22,28 @@ namespace Proyecto.Controllers
         // GET: Pedidos
         public async Task<IActionResult> Index()
         {
-              return _context.Pedidos != null ? 
-                          View(await _context.Pedidos.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Pedidos'  is null.");
+            return View("Index");
+            //return _context.Pedidos != null ? 
+            //            View(await _context.Pedidos.ToListAsync()) :
+            //            Problem("Entity set 'AppDbContext.Pedidos'  is null.");
         }
 
         // GET: Pedidos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Pedidos == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Pedidos == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var pedidos = await _context.Pedidos
-                .FirstOrDefaultAsync(m => m.IdPedidos == id);
-            if (pedidos == null)
-            {
-                return NotFound();
-            }
-
-            return View(pedidos);
+            //var pedidos = await _context.Pedidos
+            //    .FirstOrDefaultAsync(m => m.IdPedidos == id);
+            //if (pedidos == null)
+            //{
+            //    return NotFound();
+            //}
+            return View("Details");
+            //return View(pedidos);
         }
 
         // GET: Pedidos/Create
@@ -58,29 +59,29 @@ namespace Proyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdPedidos,IdProveedor,Fecha,IdUsuario")] Pedidos pedidos)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(pedidos);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(pedidos);
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(pedidos);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            return View();
         }
 
         // GET: Pedidos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Pedidos == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Pedidos == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var pedidos = await _context.Pedidos.FindAsync(id);
-            if (pedidos == null)
-            {
-                return NotFound();
-            }
-            return View(pedidos);
+            //var pedidos = await _context.Pedidos.FindAsync(id);
+            //if (pedidos == null)
+            //{
+            //    return NotFound();
+            //}
+            return View("Edit");
         }
 
         // POST: Pedidos/Edit/5
@@ -121,19 +122,21 @@ namespace Proyecto.Controllers
         // GET: Pedidos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Pedidos == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Pedidos == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var pedidos = await _context.Pedidos
-                .FirstOrDefaultAsync(m => m.IdPedidos == id);
-            if (pedidos == null)
-            {
-                return NotFound();
-            }
+            //var pedidos = await _context.Pedidos
+            //    .FirstOrDefaultAsync(m => m.IdPedidos == id);
+            //if (pedidos == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(pedidos);
+            //return View(pedidos);
+            return View("Delete");
+
         }
 
         // POST: Pedidos/Delete/5
