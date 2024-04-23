@@ -58,21 +58,14 @@
             <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.Precio)
             </dd>
-        </dl>
+        </dl>       
+    </div>
 
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="IdProductos" />
-            <div class="form-group row justify-content-end">
-                <div class="col-sm-10">
-                    
-                    <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> 
-                </div>
-            </div>
-        </form>
-    </div>    
-      
 </div>
-
-<div class="mt-3">
-    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+<br />
+<div class="form-group row">
+    <div class="col-sm-12">
+        <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
+        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
 </div>

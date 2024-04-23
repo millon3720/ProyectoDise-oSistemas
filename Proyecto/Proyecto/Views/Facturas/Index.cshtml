@@ -14,10 +14,13 @@
     <thead>
         <tr class="table-dark table-primary">
             <th>
-                Nombre Proveedor
+                Codigo Factura
             </th>
             <th>
-                Nombre Usuario            
+                Proveedor
+            </th>
+            <th>
+                Encargado            
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Fecha)
@@ -35,31 +38,76 @@
         </tr>
     </thead>
     <tbody>
-            <tr class="table-light">
-                <td>
-                    Suli
-                </td>
-                <td>
-                    Joaquin Martinez
-                </td>
-                <td>
-                    16/2/2023
-                </td>
-                <td>
-                    Pendiente
-                </td>
-                <td>
-                    66000
-                </td>
-                <td>
-                    0
-                </td>
-                <td>
-                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
-                    <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
-                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
-                </td>
-            </tr>
-}
+        <tr class="table-light">
+            <td>2</td>
+            <td>Alimentos Don José</td>
+            <td>Maria Salazar</td>
+            <td>20/3/2023</td>
+            <td>Pendiente</td>
+            <td>45000</td>
+            <td>10000</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="2">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="2">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="2">Eliminar</a>
+            </td>
+        </tr>
+        <tr class="table-secondary">
+            <td>3</td>
+            <td>Distribuidora Alimentos Frescos</td>
+            <td>Carlos Sánchez</td>
+            <td>5/4/2023</td>
+            <td>Pendiente</td>
+            <td>78000</td>
+            <td>20000</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="3">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="3">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="3">Eliminar</a>
+            </td>
+        </tr>
+        <tr class="table-light">
+            <td>4</td>
+            <td>Supermercado La Familia</td>
+            <td>Luis Ramírez</td>
+            <td>12/5/2023</td>
+            <td>Pendiente</td>
+            <td>32000</td>
+            <td>5000</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="4">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="4">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="4">Eliminar</a>
+            </td>
+        </tr>
+        <tr class="table-secondary">
+            <td>5</td>
+            <td>Distribuidora Vida Sana</td>
+            <td>Ana Gutiérrez</td>
+            <td>8/6/2023</td>
+            <td>Pendiente</td>
+            <td>55000</td>
+            <td>15000</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="5">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="5">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="5">Eliminar</a>
+            </td>
+        </tr>
+        <tr class="table-light">
+            <td>6</td>
+            <td>Alimentos Frescos S.A.</td>
+            <td>José Pérez</td>
+            <td>14/7/2023</td>
+            <td>Pendiente</td>
+            <td>67000</td>
+            <td>8000</td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="6">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="6">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="6">Eliminar</a>
+            </td>
+        </tr>
+
     </tbody>
 </table>

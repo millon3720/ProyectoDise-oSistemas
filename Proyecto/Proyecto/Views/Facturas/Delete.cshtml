@@ -3,56 +3,55 @@
 @{
     ViewData["Title"] = "Eliminar";
 }
-
-<h1>Eliminar</h1>
-
-
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">Detalles del Producto a Eliminar</h4>
+        <h4 class="card-title">Información de la Factura</h4>
         <hr />
-    <dl class="row">
-            <dt class="col-sm-2">
-                Nombre Proveedor
+        <dl class="row">
+            <dt class="col-sm-4">
+                Proveedor
             </dt>
-            <dd class="col-sm-10">
-                "Nombre..."
+            <dd class="col-sm-8">
+                Suli
             </dd>
-            <dt class="col-sm-2">
-                Nombre Usuario
+            <dt class="col-sm-4">
+                Proveedor
             </dt>
-            <dd class="col-sm-10">
-                "Nombre..."
+            <dd class="col-sm-8">
+                Joaquin Martinez
             </dd>
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 Fecha
             </dt>
-            <dd class="col-sm-10">
-                "Fecha"
+            <dd class="col-sm-8">
+                16/2/2023
             </dd>
-            <dt class="col-sm-2">
-                Pendiente
+            <dt class="col-sm-4">
+                Estado Factura
             </dt>
-            <dd class="col-sm-10">
-                "Estado"
+            <dd class="col-sm-8">
+                <input type="checkbox" id="checkbox6" name="checkbox6" value="valor6" checked />  Pendiente
             </dd>
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 Monto Total
             </dt>
-            <dd class="col-sm-10">
-                "0"
+            <dd class="col-sm-8">
+                66000
             </dd>
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 Monto Deuda
             </dt>
-            <dd class="col-sm-10">
-                "0"
+            <dd class="col-sm-8">
+                0
             </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="IdFactura" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-            <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
-    </form>
+        </dl>
+    </div>
+
+</div>
+<br />
+<div class="form-group row">
+    <div class="col-sm-12">
+        <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
+        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+    </div>
 </div>
