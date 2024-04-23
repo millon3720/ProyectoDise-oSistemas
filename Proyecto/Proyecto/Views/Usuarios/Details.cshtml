@@ -4,9 +4,53 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalles de Usuario</h1>
 
-<div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Usuarios</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Cedula)
+            </dt>
+            <dd class="col-sm-8">
+                123456789
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-8">
+                Luis 
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </dt>
+            <dd class="col-sm-8">
+                Rodriguez Zeledón
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+            <dd class="col-sm-8">
+                3333-3333
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.Puesto)
+            </dt>
+            <dd class="col-sm-8">
+                Gondolero
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.IdBodegas)
+            </dt>
+            <dd class="col-sm-8">
+                Bodega 1
+            </dd>
+        </dl>
+    </div>
+</div>
+@* <div>
     <h4>Usuarios</h4>
     <hr />
     <dl class="row">
@@ -47,8 +91,7 @@
             @Html.DisplayFor(model => model.Bodegas.DireccionExacta)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdUsuario">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+</div> *@
+<div class="mt-3 text-center">
+    <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
 </div>

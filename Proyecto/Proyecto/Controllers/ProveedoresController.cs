@@ -29,22 +29,23 @@ namespace Proyecto.Controllers
         // GET: Proveedores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Proveedores == null)
-            {
-                return NotFound();
-            }
+            return View("Details");
+            //if (id == null || _context.Proveedores == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var proveedores = await _context.Proveedores
-                .Include(p => p.Canton)
-                .Include(p => p.Distrito)
-                .Include(p => p.Provincia)
-                .FirstOrDefaultAsync(m => m.IdProveedores == id);
-            if (proveedores == null)
-            {
-                return NotFound();
-            }
+            //var proveedores = await _context.Proveedores
+            //    .Include(p => p.Canton)
+            //    .Include(p => p.Distrito)
+            //    .Include(p => p.Provincia)
+            //    .FirstOrDefaultAsync(m => m.IdProveedores == id);
+            //if (proveedores == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(proveedores);
+            //return View(proveedores);
         }
 
         // GET: Proveedores/Create
@@ -78,20 +79,21 @@ namespace Proyecto.Controllers
         // GET: Proveedores/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Proveedores == null)
-            {
-                return NotFound();
-            }
+            return View("Edit");
+            //if (id == null || _context.Proveedores == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var proveedores = await _context.Proveedores.FindAsync(id);
-            if (proveedores == null)
-            {
-                return NotFound();
-            }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", proveedores.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", proveedores.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", proveedores.IdProvincia);
-            return View(proveedores);
+            //var proveedores = await _context.Proveedores.FindAsync(id);
+            //if (proveedores == null)
+            //{
+            //    return NotFound();
+            //}
+            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", proveedores.IdCanton);
+            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", proveedores.IdDistrito);
+            //ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", proveedores.IdProvincia);
+            //return View(proveedores);
         }
 
         // POST: Proveedores/Edit/5
@@ -135,22 +137,23 @@ namespace Proyecto.Controllers
         // GET: Proveedores/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Proveedores == null)
-            {
-                return NotFound();
-            }
+            return View("Delete");
+            //if (id == null || _context.Proveedores == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var proveedores = await _context.Proveedores
-                .Include(p => p.Canton)
-                .Include(p => p.Distrito)
-                .Include(p => p.Provincia)
-                .FirstOrDefaultAsync(m => m.IdProveedores == id);
-            if (proveedores == null)
-            {
-                return NotFound();
-            }
+            //var proveedores = await _context.Proveedores
+            //    .Include(p => p.Canton)
+            //    .Include(p => p.Distrito)
+            //    .Include(p => p.Provincia)
+            //    .FirstOrDefaultAsync(m => m.IdProveedores == id);
+            //if (proveedores == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(proveedores);
+            //return View(proveedores);
         }
 
         // POST: Proveedores/Delete/5

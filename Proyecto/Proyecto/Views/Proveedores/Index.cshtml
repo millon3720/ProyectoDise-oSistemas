@@ -4,74 +4,107 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Proveedores</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Crear Nueva</a>
 </p>
-<table class="table">
+<table class="table table-striped table-hover">
     <thead>
-        <tr>
+        <tr class="table-dark table-primary">
             <th>
-                @Html.DisplayNameFor(model => model.Cedula)
+                Cedula
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Correo)
+                Correo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                Nombre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Telefono)
+                Telefono
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Provincia)
+                Provincia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Canton)
+                Canton
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Distrito)
+                Distrito
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DireccionExacta)
+                DireccionExacta
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+
+        <tr class="table-light">
             <td>
-                @Html.DisplayFor(modelItem => item.Cedula)
+               1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Correo)
+                1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
+                1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Provincia.Nombre)
+                1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Canton.Nombre)
+                1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Distrito.Nombre)
+                1
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DireccionExacta)
+                1
             </td>
             <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProveedores">Edit</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProveedores">Details</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProveedores">Delete</a>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
             </td>
         </tr>
-}
+
+        <tr class="table-secondary">
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
+                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
+            </td>
+        </tr>
+
+
     </tbody>
 </table>

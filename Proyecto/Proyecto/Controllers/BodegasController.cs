@@ -139,22 +139,25 @@ namespace Proyecto.Controllers
         // GET: Bodegas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Bodegas == null)
-            {
-                return NotFound();
-            }
 
-            var bodegas = await _context.Bodegas
-                .Include(b => b.Canton)
-                .Include(b => b.Distrito)
-                .Include(b => b.Provincia)
-                .FirstOrDefaultAsync(m => m.IdBodegas == id);
-            if (bodegas == null)
-            {
-                return NotFound();
-            }
+            return View("Delete");
 
-            return View(bodegas);
+            //if (id == null || _context.Bodegas == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var bodegas = await _context.Bodegas
+            //    .Include(b => b.Canton)
+            //    .Include(b => b.Distrito)
+            //    .Include(b => b.Provincia)
+            //    .FirstOrDefaultAsync(m => m.IdBodegas == id);
+            //if (bodegas == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //return View(bodegas);
         }
 
         // POST: Bodegas/Delete/5
