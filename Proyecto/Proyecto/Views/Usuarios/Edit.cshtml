@@ -4,54 +4,57 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1 class="text-center">Editar Usuario</h1>
 
-<h4>Usuarios</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdUsuario" />
-            <div class="form-group">
-                <label asp-for="Cedula" class="control-label"></label>
-                <input asp-for="Cedula" class="form-control" />
-                <span asp-validation-for="Cedula" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apellidos" class="control-label"></label>
-                <input asp-for="Apellidos" class="form-control" />
-                <span asp-validation-for="Apellidos" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Puesto" class="control-label"></label>
-                <input asp-for="Puesto" class="form-control" />
-                <span asp-validation-for="Puesto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdBodegas" class="control-label"></label>
-                <select asp-for="IdBodegas" class="form-control" asp-items="ViewBag.IdBodegas"></select>
-                <span asp-validation-for="IdBodegas" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit" class="">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdUsuario" />
+                <div class="form-group">
+                    <label asp-for="Cedula" class="control-label mb-1"></label>
+                    <input asp-for="Cedula" class="form-control" value="123456789"/>
+                    <span asp-validation-for="Cedula" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label mb-1"></label>
+                    <input asp-for="Nombre" class="form-control" value="Luis" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Apellidos" class="control-label mb-1"></label>
+                    <input asp-for="Apellidos" class="form-control" value="Rodriguez Zeledón" />
+                    <span asp-validation-for="Apellidos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefono" class="control-label mb-1"></label>
+                    <input asp-for="Telefono" class="form-control" value="6666-6666" />
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Puesto" class="control-label mb-1"></label>
+                    <input asp-for="Puesto" class="form-control mb-1" value="Gondolero" />
+                    <span asp-validation-for="Puesto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label mb-1">Tipo de bodega</label>
+                    <select asp-for="IdBodegas" class="form-control" asp-items="ViewBag.IdBodegas">
+                        <option selected disabled value="">Seleccione una bodega</option>
+                        <option value="">Bodega 1</option>
+                        <option value="">Bodega 2</option>
+                        <option value="">Bodega 3</option>
+                    </select>
+                    <span asp-validation-for="IdBodegas" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center mt-4">
+                    <input type="submit" value="Aceptar" class="btn btn-success" />&nbsp; &nbsp; &nbsp;
+                    <a asp-action="Index" class="btn btn-primary">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
