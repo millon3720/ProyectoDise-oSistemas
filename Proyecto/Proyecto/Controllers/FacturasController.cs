@@ -22,27 +22,28 @@ namespace Proyecto.Controllers
         // GET: Facturas
         public async Task<IActionResult> Index()
         {
-              return _context.Facturas != null ? 
-                          View(await _context.Facturas.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Facturas'  is null.");
+            return View("Index");
+              //return _context.Facturas != null ? 
+              //            View(await _context.Facturas.ToListAsync()) :
+              //            Problem("Entity set 'AppDbContext.Facturas'  is null.");
         }
 
         // GET: Facturas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Facturas == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Facturas == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var facturas = await _context.Facturas
-                .FirstOrDefaultAsync(m => m.IdFactura == id);
-            if (facturas == null)
-            {
-                return NotFound();
-            }
+            //var facturas = await _context.Facturas
+            //    .FirstOrDefaultAsync(m => m.IdFactura == id);
+            //if (facturas == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(facturas);
+            return View("Details");
         }
 
         // GET: Facturas/Create
@@ -70,17 +71,18 @@ namespace Proyecto.Controllers
         // GET: Facturas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Facturas == null)
-            {
-                return NotFound();
-            }
+            return View("Edit");
+            //    if (id == null || _context.Facturas == null)
+            //    {
+            //        return NotFound();
+            //    }
 
-            var facturas = await _context.Facturas.FindAsync(id);
-            if (facturas == null)
-            {
-                return NotFound();
-            }
-            return View(facturas);
+            //    var facturas = await _context.Facturas.FindAsync(id);
+            //    if (facturas == null)
+            //    {
+            //        return NotFound();
+            //    }
+            //    return View(facturas);
         }
 
         // POST: Facturas/Edit/5
@@ -121,19 +123,21 @@ namespace Proyecto.Controllers
         // GET: Facturas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Facturas == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Facturas == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var facturas = await _context.Facturas
-                .FirstOrDefaultAsync(m => m.IdFactura == id);
-            if (facturas == null)
-            {
-                return NotFound();
-            }
+            //var facturas = await _context.Facturas
+            //    .FirstOrDefaultAsync(m => m.IdFactura == id);
+            //if (facturas == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(facturas);
+            //return View(facturas);
+            return View("Delete");
+
         }
 
         // POST: Facturas/Delete/5

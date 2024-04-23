@@ -1,57 +1,58 @@
 ﻿@model Proyecto.Models.Facturas
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar";
 }
 
-<h1>Delete</h1>
+<h1>Eliminar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Facturas</h4>
-    <hr />
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles del Producto a Eliminar</h4>
+        <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProveedor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdProveedor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pendiente)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pendiente)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MontoTotal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MontoTotal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MontoDeuda)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MontoDeuda)
-        </dd>
+            <dt class="col-sm-2">
+                Nombre Proveedor
+            </dt>
+            <dd class="col-sm-10">
+                "Nombre..."
+            </dd>
+            <dt class="col-sm-2">
+                Nombre Usuario
+            </dt>
+            <dd class="col-sm-10">
+                "Nombre..."
+            </dd>
+            <dt class="col-sm-2">
+                Fecha
+            </dt>
+            <dd class="col-sm-10">
+                "Fecha"
+            </dd>
+            <dt class="col-sm-2">
+                Pendiente
+            </dt>
+            <dd class="col-sm-10">
+                "Estado"
+            </dd>
+            <dt class="col-sm-2">
+                Monto Total
+            </dt>
+            <dd class="col-sm-10">
+                "0"
+            </dd>
+            <dt class="col-sm-2">
+                Monto Deuda
+            </dt>
+            <dd class="col-sm-10">
+                "0"
+            </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdFactura" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
     </form>
 </div>

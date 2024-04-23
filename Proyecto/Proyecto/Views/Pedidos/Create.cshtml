@@ -1,33 +1,34 @@
 ﻿@model Proyecto.Models.Pedidos
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
 }
 
-<h1>Create</h1>
+<h1>Crear Pedido</h1>
 
-<h4>Pedidos</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Detalles del Pedido</h4>
+        <hr />
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdProveedor" class="control-label"></label>
+            <div class="form-group row mb-3">
+                <label  class="control-label">Nombre Proveedor</label>
                 <input asp-for="IdProveedor" class="form-control" />
                 <span asp-validation-for="IdProveedor" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
+            <div class="form-group row mb-3">
+                <label class="control-label">Fecha</label>
                 <input asp-for="Fecha" class="form-control" />
                 <span asp-validation-for="Fecha" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IdUsuario" class="control-label"></label>
+            <div class="form-group row mb-3">
+                <label class="control-label">Nombre Usuario</label>
                 <input asp-for="IdUsuario" class="form-control" />
                 <span asp-validation-for="IdUsuario" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group row mb-3">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -35,7 +36,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Volver a la lista</a>
 </div>
 
 @section Scripts {

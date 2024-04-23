@@ -1,54 +1,54 @@
 ﻿@model Proyecto.Models.Facturas
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h1>Details</h1>
+<h1>Detalles</h1>
 
-<div>
-    <h4>Facturas</h4>
-    <hr />
-    <dl class="row">
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Información de la Factura</h4>
+        <hr />
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProveedor)
+            Nombre Proveedor
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdProveedor)
+            "Nombre..."
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuario)
+            Nombre Usuario
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuario)
+            "Nombre..."
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
+            Fecha
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
+            "Fecha"
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pendiente)
+            Pendiente
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pendiente)
+            "Estado"
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MontoTotal)
+            Monto Total
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MontoTotal)
+            "0"
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MontoDeuda)
+            Monto Deuda
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MontoDeuda)
+            "0"
         </dd>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdFactura">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
 </div>
