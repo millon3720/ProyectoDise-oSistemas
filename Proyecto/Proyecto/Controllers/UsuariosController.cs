@@ -22,34 +22,35 @@ namespace Proyecto.Controllers
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Usuarios.Include(u => u.Bodegas);
-            return View(await appDbContext.ToListAsync());
+            //var appDbContext = _context.Usuarios.Include(u => u.Bodegas);
+            //return View(await appDbContext.ToListAsync());
+            return View("Index");
         }
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Usuarios == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Usuarios == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var usuarios = await _context.Usuarios
-                .Include(u => u.Bodegas)
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuarios == null)
-            {
-                return NotFound();
-            }
+            //var usuarios = await _context.Usuarios
+            //    .Include(u => u.Bodegas)
+            //    .FirstOrDefaultAsync(m => m.IdUsuario == id);
+            //if (usuarios == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(usuarios);
+            return View("Details");
         }
 
         // GET: Usuarios/Create
         public IActionResult Create()
         {
-            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta");
-            return View();
+            //ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta");
+            return View("create");
         }
 
         // POST: Usuarios/Create
@@ -72,18 +73,19 @@ namespace Proyecto.Controllers
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Usuarios == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.Usuarios == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var usuarios = await _context.Usuarios.FindAsync(id);
-            if (usuarios == null)
-            {
-                return NotFound();
-            }
-            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodegas);
-            return View(usuarios);
+            //var usuarios = await _context.Usuarios.FindAsync(id);
+            //if (usuarios == null)
+            //{
+            //    return NotFound();
+            //}
+            //ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodegas);
+            //return View(usuarios);
+            return View("Edit");
         }
 
         // POST: Usuarios/Edit/5
@@ -125,20 +127,20 @@ namespace Proyecto.Controllers
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Usuarios == null)
-            {
-                return NotFound();
-            }
+        //    if (id == null || _context.Usuarios == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var usuarios = await _context.Usuarios
-                .Include(u => u.Bodegas)
-                .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuarios == null)
-            {
-                return NotFound();
-            }
+        //    var usuarios = await _context.Usuarios
+        //        .Include(u => u.Bodegas)
+        //        .FirstOrDefaultAsync(m => m.IdUsuario == id);
+        //    if (usuarios == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(usuarios);
+            return View("delete");
         }
 
         // POST: Usuarios/Delete/5

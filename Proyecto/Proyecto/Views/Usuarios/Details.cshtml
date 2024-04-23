@@ -4,9 +4,99 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="text-center">Detalles</h1>
+<br />
+<div class="container text-center">
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="table-dark table-primary">
+            <th>
+                Cedula
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Apellidos
+            </th>
+            <th>
+                Telefono
+            </th>
+            <th>
+                Puesto
+            </th>
+            <th>
+                Numero de bodega
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                123456789
+            </td>
+            <td>
+                Luis
+            </td>
+            <td>
+                Rodriguez Zeledon
+            </td>
+            <td>
+                3333-3333
+            </td>
+            <td>
+                Gondolero
+            </td>
+            <td>
+                Bodega 1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                123456789
+            </td>
+            <td>
+                Luis
+            </td>
+            <td>
+                Rodriguez Zeledon
+            </td>
+            <td>
+                6666-6666
+            </td>
+            <td>
+                Gondolero
+            </td>
+            <td>
+                Bodega 1
+            </td>
 
-<div>
+        </tr>
+        <tr>
+            <td>
+                123456789
+            </td>
+            <td>
+                Luis
+            </td>
+            <td>
+                Rodriguez Zeledon
+            </td>
+            <td>
+                8888-8888
+            </td>
+            <td>
+                Gondolero
+            </td>
+            <td>
+                Bodega 1
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+@* <div>
     <h4>Usuarios</h4>
     <hr />
     <dl class="row">
@@ -47,8 +137,8 @@
             @Html.DisplayFor(model => model.Bodegas.DireccionExacta)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdUsuario">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+</div> *@
+<br />
+<div class="col-12 text-center">
+    <a asp-action="Index" class="btn btn-primary">Volver</a>
 </div>
