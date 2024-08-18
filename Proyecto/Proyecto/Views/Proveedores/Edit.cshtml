@@ -1,6 +1,9 @@
-﻿@model Proyecto.Models.Proveedores
-
+﻿@model Proyecto.Models.ProveedorEditViewModel
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
+    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
+    int contador = 0;
     ViewData["Title"] = "Edit";
 }
 
@@ -11,31 +14,46 @@
 
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdProveedores" />
-
+            <input type="hidden" asp-for="Proveedor.IdProveedores" />
+            
             <div class="form-group row mb-3">
-                <label class="col-sm-4 col-form-label">Correo:</label>
+                <label class="col-sm-4 col-form-label">Codigo:</label>
                 <div class="col-sm-8">
 
-                    <input asp-for="Correo" class="form-control" value="josed200096@gmail.com" />
-                    <span asp-validation-for="Correo" class="text-danger"></span>
+                    <input asp-for="Proveedor.IdProveedores" class="form-control" readonly  />
+                    <span asp-validation-for="Proveedor.IdProveedores" class="text-danger"></span>
                 </div>
             </div>
-
 
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Nombre:</label>
                 <div class="col-sm-8">
-                    <input asp-for="Nombre" class="form-control" value="Suli" />
-                    <span asp-validation-for="Nombre" class="text-danger"></span>
+
+                    <input asp-for="Proveedor.Nombre" class="form-control" />
+                    <span asp-validation-for="Proveedor.Nombre" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="form-group row mb-3">
-                <label class="col-sm-4 col-form-label">Telefono:</label>
+                <label class="col-sm-4 col-form-label">Nombre:</label>
                 <div class="col-sm-8">
-                    <input asp-for="Telefono1" class="form-control" value="62819567" />
-                    <span asp-validation-for="Telefono1" class="text-danger"></span>
+                    <input asp-for="Proveedor.Correo" class="form-control" />
+                    <span asp-validation-for="Proveedor.Correo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Telefono 1:</label>
+                <div class="col-sm-8">
+                    <input asp-for="Proveedor.Telefono1" class="form-control"  />
+                    <span asp-validation-for="Proveedor.Telefono1" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Telefono 2:</label>
+                <div class="col-sm-8">
+                    <input asp-for="Proveedor.Telefono2" class="form-control"  />
+                    <span asp-validation-for="Proveedor.Telefono2" class="text-danger"></span>
                 </div>
             </div>
 
@@ -43,15 +61,20 @@
                 <label class="col-sm-4 col-form-label">Provincia:</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="provincias">
-                        <option value="San José" selected>San José</option>
-                        <option value="Alajuela">Alajuela</option>
-                        <option value="Cartago">Cartago</option>
-                        <option value="Heredia">Heredia</option>
-                        <option value="Guanacaste">Guanacaste</option>
-                        <option value="Puntarenas">Puntarenas</option>
-                        <option value="Limón">Limón</option>
+                        @foreach (var item in Model.Provincias)
+                        {
+                            @if (item.IdProvincia==Model.Proveedor.IdProvincia)
+                            {
+                                <option value="@item.IdProvincia" selected>@item.Nombre</option>
+                            }
+                            else
+                            {
+                                <option value="@item.IdProvincia">@item.Nombre</option>
+                            }
+                        }
+                       
                     </select>
-                    <span asp-validation-for="IdProvincia" class="text-danger"></span>
+                    <span asp-validation-for="Proveedor.IdProvincia" class="text-danger"></span>
                 </div>
             </div>
 
@@ -59,23 +82,19 @@
                 <label class="col-sm-4 col-form-label">Canton:</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="cantonesAlajuela">
-                        <option value="Alajuela" selected>Alajuela</option>
-                        <option value="San Ramón">San Ramón</option>
-                        <option value="Grecia">Grecia</option>
-                        <option value="San Mateo">San Mateo</option>
-                        <option value="Atenas">Atenas</option>
-                        <option value="Naranjo">Naranjo</option>
-                        <option value="Palmares">Palmares</option>
-                        <option value="Poás">Poás</option>
-                        <option value="Orotina">Orotina</option>
-                        <option value="San Carlos">San Carlos</option>
-                        <option value="Zarcero">Zarcero</option>
-                        <option value="Sarchí">Sarchí</option>
-                        <option value="Upala">Upala</option>
-                        <option value="Los Chiles">Los Chiles</option>
-                        <option value="Guatuso">Guatuso</option>
+                        @foreach (var item in Model.Cantones)
+                        {
+                            @if (item.IdCanton == Model.Proveedor.IdCanton)
+                            {
+                                <option value="@item.IdCanton" selected>@item.Nombre</option>
+                            }
+                            else
+                            {
+                                <option value="@item.IdCanton">@item.Nombre</option>
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="IdCanton" class="text-danger"></span>
+                    <span asp-validation-for="Proveedor.IdCanton" class="text-danger"></span>
                 </div>
             </div>
 
@@ -83,42 +102,43 @@
                 <label class="col-sm-4 col-form-label">Distrito:</label>
                 <div class="col-sm-8">
                     <select class="form-control" id="distritosCR">
-                        <option value="San José" selected>San José</option>
-                        <option value="Escazú">Escazú</option>
-                        <option value="Desamparados">Desamparados</option>
-                        <option value="Puriscal">Puriscal</option>
-                        <option value="Tibás">Tibás</option>
-                        <option value="Moravia">Moravia</option>
-                        <option value="Montes de Oca">Montes de Oca</option>
-                        <option value="Turrubares">Turrubares</option>
-                        <option value="Dota">Dota</option>
-                        <option value="Curridabat">Curridabat</option>
+                        @foreach (var item in Model.Distritos)
+                        {
+                            @if (item.IdDistrito == Model.Proveedor.IdDistrito)
+                            {
+                                <option value="@item.IdDistrito" selected>@item.Nombre</option>
+                            }
+                            else
+                            {
+                                <option value="@item.IdDistrito">@item.Nombre</option>
+                            }
+                        }
                     </select>
-                    <span asp-validation-for="IdDistrito" class="text-danger"></span>
+                    <span asp-validation-for="Proveedor.IdDistrito" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Direccion Exacta:</label>
                 <div class="col-sm-8">
-                    <input asp-for="DireccionExacta" class="form-control" value="200 mts norte del parque 50 mts este" />
-                    <span asp-validation-for="DireccionExacta" class="text-danger"></span>
+                    <input asp-for="Proveedor.DireccionExacta" class="form-control"/>
+                    <span asp-validation-for="Proveedor.DireccionExacta" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row mb-3">
-                <label asp-for="IdProveedores" class="col-sm-4 col-form-label">Agregar Producto</label>
+                <label class="col-sm-4 col-form-label">Distrito:</label>
                 <div class="col-sm-8">
-                    <select asp-for="IdProveedores" class="form-control" asp-items="ViewBag.Nombre">
-                        <option value="0">Agregar Producto</option>
-                        <option value="1">Atún en lata</option>
-                        <option value="2">Melocotones enlatados</option>
-                        <option value="3">Maíz enlatado</option>
-                        <option value="4">Sardinas en lata</option>
-
-
+                    <select class="form-control" id="distritosCR">
+                        <option value="" selected>Agregar Producto</option>
+                        @foreach (var item in Model.Productos)
+                        {
+                            <option value="@item.IdProductos">@item.Nombre</option>
+                        }
                     </select>
+                    <span asp-validation-for="Productos" class="text-danger"></span>
                 </div>
             </div>
+          
         </form>
 
     </div>
@@ -144,84 +164,45 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="table-secondary">
-            <td>1</td>
-            <td>Atún en lata</td>
-            <td>Atún en aceite de girasol</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>12 latas</td>
-            <td>2,500</td>
-            <td>
-                <input type="checkbox" id="checkbox1" name="checkbox1" value="valor1" checked />
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>2</td>
-            <td>Melocotones enlatados</td>
-            <td>Melocotones en conserva</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>24 latas</td>
-            <td>1,800</td>
-            <td>
-                <input type="checkbox" id="checkbox2" name="checkbox2" value="valor2" checked />
-            </td>
-        </tr>
-        <tr class="table-secondary">
-            <td>3</td>
-            <td>Maíz enlatado</td>
-            <td>Maíz dulce en conserva</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>20 latas</td>
-            <td>1,600</td>
-            <td>
-                <input type="checkbox" id="checkbox3" name="checkbox3" value="valor3" checked />
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>4</td>
-            <td>Sardinas en lata</td>
-            <td>Sardinas en salsa de tomate</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>10 latas</td>
-            <td>2,200</td>
-            <td>
-                <input type="checkbox" id="checkbox4" name="checkbox4" value="valor4" checked />
-            </td>
-        </tr>
-        <tr class="table-secondary">
-            <td>5</td>
-            <td>Ensalada de frutas enlatada</td>
-            <td>Frutas variadas en almíbar</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>6 latas</td>
-            <td>1,500</td>
-            <td>
-                <input type="checkbox" id="checkbox5" name="checkbox5" value="valor5" checked />
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>6</td>
-            <td>Champiñones enlatados</td>
-            <td>Champiñones en conserva</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>15 latas</td>
-            <td>2,000</td>
-            <td>
-                <input type="checkbox" id="checkbox6" name="checkbox6" value="valor6" checked />
-            </td>
-        </tr>
+        @foreach (var item in Model.ProductosProveedor)
+        {
+            @if (contador > 0)
+            {
+                contador = 0;
+                <tr class="table-secondary">
+                    <td>@item.IdProductos</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Descripcion</td>
+                    <td>@item.Presentacion</td>
+                    <td>@item.CantidadPresentacion</td>
+                    <td>@item.TipoEmpaque</td>
+                    <td>@item.CantidadEmpaque</td>
+                    <td>@item.Precio</td>
+                    <td>
+                        <input type="checkbox" id="@item.IdProductos" name="@item.Nombre" value="@item.IdProductos" checked />
+                    </td>
+                </tr>
+            }
+            else
+            {
+                contador++;
+                <tr class="table-light">
+                    <td>@item.IdProductos</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.Descripcion</td>
+                    <td>@item.Presentacion</td>
+                    <td>@item.CantidadPresentacion</td>
+                    <td>@item.TipoEmpaque</td>
+                    <td>@item.CantidadEmpaque</td>
+                    <td>@item.Precio</td>
+                    <td>
+                        <input type="checkbox" id="@item.IdProductos" name="@item.Nombre" value="@item.IdProductos" checked />
+                    </td>
+                </tr>
+            }
+        
+        }
+       
     </tbody>
 </table>
 

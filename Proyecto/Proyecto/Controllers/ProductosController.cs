@@ -67,14 +67,14 @@ namespace Proyecto.Controllers
         }
 
         // GET: Productos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? Id)
         {
-            if (id == null || _context.Productos == null)
+            if (Id == null || _context.Productos == null)
             {
                 return NotFound();
             }
 
-            var productos = await _context.Productos.FindAsync(id);
+            var productos = await _context.Productos.FindAsync(Id);
             if (productos == null)
             {
                 return NotFound();
@@ -87,34 +87,30 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProductos,Nombre,Descripcion,Presentacion,CantidadPresentacion,TipoEmpaque,CantidadEmpaque,Precio")] Productos productos)
+        public async Task<IActionResult> Edit(int IdProductos, [Bind("IdProductos,Nombre,Descripcion,Presentacion,CantidadPresentacion,TipoEmpaque,CantidadEmpaque,Precio")] Productos productos)
         {
-            if (id != productos.IdProductos)
+            if (IdProductos != productos.IdProductos)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(productos);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductosExists(productos.IdProductos))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(productos);
+                await _context.SaveChangesAsync();
             }
-            return View(productos);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductosExists(productos.IdProductos))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+
         }
 
         // GET: Productos/Delete/5

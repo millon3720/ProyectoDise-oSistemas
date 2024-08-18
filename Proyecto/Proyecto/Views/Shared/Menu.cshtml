@@ -3,7 +3,7 @@
 @{
     string Login = HttpContextAccessor.HttpContext.Session.GetString("Login");
     string Usuario = HttpContextAccessor.HttpContext.Session.GetString("Usuario");
-    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Rol");
+    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
 }
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
@@ -15,7 +15,7 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                   @if (Login == "True")
+                    @if (Login == "True")
                     {
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
@@ -29,27 +29,31 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a>
                         </li>
-                        @if (Rol == "Gerente" || Rol == "Administrador")
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Pedidos" asp-action="Index">Pedidos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Facturas" asp-action="Index">Facturas</a>
-                            </li>
-                        }
-                        @if (Rol == "Gerente" || Rol == "Administrador")
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
-                            </li>
-                        }
-                }
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Pedidos" asp-action="Index">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Facturas" asp-action="Index">Facturas</a>
+                        </li>
+                    }
+                    @if (Rol == "Administrador")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+                        </li>
+                    }
+                  
                 </ul>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                    <p class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@Usuario</p>
+                    </li>
+                    <li class="nav-item">
+                        @if (Login == "True")
+                    {
+                            <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="index"><img src="~/img/Salir.png" alt="" /></a>
+                    }
                     </li>
                 </ul>
             </div>

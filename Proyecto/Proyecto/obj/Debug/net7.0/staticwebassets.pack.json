@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\img\\CarritoLogo.png",
+      "PackagePath": "staticwebassets\\img\\CarritoLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\img\\LoginLogo.png",
+      "PackagePath": "staticwebassets\\img\\LoginLogo.png"
+    },
+    {
+      "Id": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\img\\Salir.png",
+      "PackagePath": "staticwebassets\\img\\Salir.png"
+    },
+    {
       "Id": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

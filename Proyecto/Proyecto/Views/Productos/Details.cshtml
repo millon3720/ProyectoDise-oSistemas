@@ -1,6 +1,10 @@
 ﻿@model Proyecto.Models.Productos
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
+    string Login = HttpContextAccessor.HttpContext.Session.GetString("Login");
+    string Usuario = HttpContextAccessor.HttpContext.Session.GetString("Usuario");
+    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
     ViewData["Title"] = "Detalles";
 }
 
@@ -61,6 +65,9 @@
 </div>
 
 <div class="mt-3">
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdProductos">Editar</a> |
+    @if (Rol == "Administrador")
+{
+    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdProductos">Editar</a> 
+}
     <a asp-action="Index" class="btn btn-secondary ml-2">Volver a la Lista</a>
 </div>
