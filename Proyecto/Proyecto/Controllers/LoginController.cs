@@ -19,13 +19,12 @@ namespace Proyecto.Controllers
         public ActionResult Index()
         {
             HttpContext.Session.Clear();
-            //HttpContext.Session.SetString("Login", "False");
             return View("Login");
         }
         public IActionResult RevisarLogin(string Usuario, string Clave)
         {
 
-            List<Usuarios> Login = _db.Usuarios.Where(tp => tp.Usuario == Usuario && tp.Clave == Clave).Include(v => v.Puesto).ToList();
+            List<Usuarios> Login = _db.Usuarios.Where(tp => tp.Usuario == Usuario && tp.Clave == Clave).ToList();
 
             if (Login != null)
             {

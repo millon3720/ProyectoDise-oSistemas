@@ -1,16 +1,22 @@
 ﻿@model IEnumerable<Proyecto.Models.Productos>
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
+    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
+    string Login = HttpContextAccessor.HttpContext.Session.GetString("Login");
+    string Usuario = HttpContextAccessor.HttpContext.Session.GetString("Usuario");
+    
     ViewData["Title"] = "Productos";
     int contador = 0;
-    
+
 }
-
 <h1>Productos</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-success">Agregar</a>
-</p>
+@if (Rol == "Administrador")
+{
+    <p>
+        <a asp-action="Create" class="btn btn-success">Agregar</a>
+    </p>
+}
 <table class="table table-striped table-hover">
     <thead>
         <tr class="table-dark table-primary">
@@ -39,11 +45,12 @@
                 Precio
             </th>
             <th></th>
-        </trc>
+            </trc>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-            @if (contador>0)
+        @foreach (var item in Model)
+        {
+            @if (contador > 0)
             {
                 contador = 0;
                 <tr class="table-secondary">
@@ -72,10 +79,15 @@
                         @Html.DisplayFor(modelItem => item.Precio)
                     </td>
                     <td>
-                        <a asp-action="Edit" class="btn btn-warning"  asp-route-id="@item.IdProductos">Editar</a> |
-                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Detalles</a> |
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Eliminar</a>
+
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Detalles</a> 
+                        @if (Rol == "Administrador")
+                        {
+                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProductos">Editar</a>
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Eliminar</a>
+                        }
                     </td>
+
                 </tr>
             }
             else
@@ -107,14 +119,15 @@
                         @Html.DisplayFor(modelItem => item.Precio)
                     </td>
                     <td>
-                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProductos">Editar</a> |
-                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Detalles</a> |
-                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Eliminar</a>
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdProductos">Detalles</a>
+                        @if (Rol == "Administrador")
+                        {
+                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdProductos">Editar</a>
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdProductos">Eliminar</a>
+                        }
                     </td>
                 </tr>
             }
-            
-
-}
+        }
     </tbody>
 </table>

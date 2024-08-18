@@ -1,4 +1,4 @@
-﻿@model Proyecto.Models.Proveedores
+﻿@model Proyecto.Models.ProveedorEditViewModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -10,62 +10,71 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-4">
-                Cedula:
+                Codigo
             </dt>
             <dd class="col-sm-8">
-                208060466
+                @Model.Proveedor.IdProveedores
             </dd>
             <dt class="col-sm-4">
-                Correo:
+                Nombre
             </dt>
             <dd class="col-sm-8">
-                josed200096@gmail.com
+                @Model.Proveedor.Nombre
             </dd>
             <dt class="col-sm-4">
-                Nombre:
+                Correo
             </dt>
             <dd class="col-sm-8">
-                jose david
+                @Model.Proveedor.Correo
             </dd>
             <dt class="col-sm-4">
-                Telefono:
+                Telefono 1
             </dt>
             <dd class="col-sm-8">
-                62819567
+                @Model.Proveedor.Telefono1
             </dd>
             <dt class="col-sm-4">
-                Provincia:
+                Telefono 2
             </dt>
             <dd class="col-sm-8">
-                Alajuela
+                @Model.Proveedor.Telefono2
             </dd>
             <dt class="col-sm-4">
-                Canton:
+                Provincia
             </dt>
             <dd class="col-sm-8">
-                San Carlos
-            </dd>                     
-            <dt class="col-sm-4">
-                Distrito:
-            </dt>
-            <dd class="col-sm-8">
-                Aguas Zarcas
+                @Model.Proveedor.Provincia.Nombre
             </dd>
             <dt class="col-sm-4">
-                Direccion Exacta:
+                Canton
             </dt>
             <dd class="col-sm-8">
-                200 mts este del parque central
+                @Model.Proveedor.Canton.Nombre
+            </dd>
+            <dt class="col-sm-4">
+                Distrito
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Proveedor.Distrito.Nombre
+            </dd>
+            <dt class="col-sm-4">
+                Direccion Exacta
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Proveedor.DireccionExacta
             </dd>
         </dl>
-
     </div>
 
 </div>
 <br />
 <div class="form-group row">
     <div class="col-sm-12">
+          <form asp-action="Delete">
+            <input type="hidden" asp-for="Proveedor.IdProveedores" />
         <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
         <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+        </form>
+
     </div>
 </div>

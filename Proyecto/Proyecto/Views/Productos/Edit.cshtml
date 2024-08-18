@@ -3,13 +3,11 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+<form asp-action="Edit">
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Detalles del Producto</h4>
-        <hr />
-
-        <form asp-action="Edit">
+        <hr />        
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdProductos" />
             
@@ -78,7 +76,7 @@
             </div>
 
            
-        </form>
+        
 
     </div>
 </div>
@@ -91,7 +89,7 @@
     </div>
 </div>
 
-
+</form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

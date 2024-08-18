@@ -22,30 +22,40 @@ namespace Proyecto.Controllers
         // GET: Proveedores
         public async Task<IActionResult> Index()
         {
-            //var appDbContext = _context.Proveedores.Include(p => p.Canton).Include(p => p.Distrito).Include(p => p.Provincia);
-            return View();
+            var appDbContext = _context.Proveedores.Include(p => p.Canton).Include(p => p.Distrito).Include(p => p.Provincia);
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: Proveedores/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            return View("Details");
-            //if (id == null || _context.Proveedores == null)
-            //{
-            //    return NotFound();
-            //}
 
-            //var proveedores = await _context.Proveedores
-            //    .Include(p => p.Canton)
-            //    .Include(p => p.Distrito)
-            //    .Include(p => p.Provincia)
-            //    .FirstOrDefaultAsync(m => m.IdProveedores == id);
-            //if (proveedores == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var proveedorConProductos = await _context.ProductoProveedores
+                .Where(pp => pp.IdProveedor == id)
+                .Include(pp => pp.Productos)   
+                .Include(pp => pp.Proveedores)   
+                .ToListAsync();  
 
-            //return View(proveedores);
+            if (proveedorConProductos == null || !proveedorConProductos.Any())
+            {
+                return NotFound();
+            }
+            var provincias = await _context.Provincia.ToListAsync();
+            var cantones = await _context.Canton.ToListAsync();
+            var distritos = await _context.Distrito.ToListAsync();
+            var viewModel = new ProveedorEditViewModel
+            {
+                Proveedor = proveedorConProductos.First().Proveedores, 
+                ProductosProveedor = proveedorConProductos.Select(pp => pp.Productos),  
+                Provincias = provincias.OrderBy(p => p.Nombre),
+                Cantones = cantones.OrderBy(p => p.Nombre),
+                Distritos = distritos.OrderBy(p => p.Nombre)
+            };
+            return View(viewModel);
         }
 
         // GET: Proveedores/Create
@@ -79,22 +89,38 @@ namespace Proyecto.Controllers
         // GET: Proveedores/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            return View("Edit");
-            //if (id == null || _context.Proveedores == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var proveedorConProductos = await _context.ProductoProveedores
+                .Where(pp => pp.IdProveedor == id)
+                .Include(pp => pp.Productos)   
+                .Include(pp => pp.Proveedores)  
+                .ToListAsync();  
+            if (proveedorConProductos == null || !proveedorConProductos.Any())
+            {
+                return NotFound();
+            }
+            var provincias = await _context.Provincia.ToListAsync();
+            var cantones = await _context.Canton.ToListAsync();
+            var distritos = await _context.Distrito.ToListAsync();
+            var Productos = await _context.Productos.ToListAsync();
 
-            //var proveedores = await _context.Proveedores.FindAsync(id);
-            //if (proveedores == null)
-            //{
-            //    return NotFound();
-            //}
-            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", proveedores.IdCanton);
-            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", proveedores.IdDistrito);
-            //ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", proveedores.IdProvincia);
-            //return View(proveedores);
+            var viewModel = new ProveedorEditViewModel
+            {
+                Proveedor = proveedorConProductos.First().Proveedores, 
+                ProductosProveedor = proveedorConProductos.Select(pp => pp.Productos),  
+                Provincias = provincias.OrderBy(p=> p.Nombre),
+                Cantones = cantones.OrderBy(p => p.Nombre),
+                Distritos = distritos.OrderBy(p => p.Nombre),
+                Productos = Productos.OrderBy(p => p.Nombre)
+            };
+
+            return View(viewModel);
         }
+
+
 
         // POST: Proveedores/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -137,23 +163,29 @@ namespace Proyecto.Controllers
         // GET: Proveedores/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            return View("Delete");
-            //if (id == null || _context.Proveedores == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var proveedores = await _context.Proveedores
-            //    .Include(p => p.Canton)
-            //    .Include(p => p.Distrito)
-            //    .Include(p => p.Provincia)
-            //    .FirstOrDefaultAsync(m => m.IdProveedores == id);
-            //if (proveedores == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return View(proveedores);
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var proveedorConProductos = await _context.ProductoProveedores
+                .Where(pp => pp.IdProveedor == id)
+                .Include(pp => pp.Proveedores)   
+                .ToListAsync();  
+            if (proveedorConProductos == null || !proveedorConProductos.Any())
+            {
+                return NotFound();
+            }
+            var provincias = await _context.Provincia.ToListAsync();
+            var cantones = await _context.Canton.ToListAsync();
+            var distritos = await _context.Distrito.ToListAsync();
+            var viewModel = new ProveedorEditViewModel
+            {
+                Proveedor = proveedorConProductos.First().Proveedores, 
+                Provincias = provincias.OrderBy(p => p.Nombre),
+                Cantones = cantones.OrderBy(p => p.Nombre),
+                Distritos = distritos.OrderBy(p => p.Nombre)
+            };
+            return View(viewModel);
         }
 
         // POST: Proveedores/Delete/5
