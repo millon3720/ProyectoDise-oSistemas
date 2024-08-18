@@ -8,15 +8,19 @@ namespace Proyecto.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdProductoFactura { get; set; }
-        
-        [ForeignKey("Facturas")]
+
         public int IdFactura { get; set; }
         public Facturas Factura { get; set; }
-        [ForeignKey("Productos")]
+
         public int IdProducto { get; set; }
         public Productos Producto { get; set; }
 
         [Required(ErrorMessage = "La cantidad del producto en la factura es requerida.")]
         public int Cantidad { get; set; }
+
+        [Required(ErrorMessage = "El precio del producto en la factura es requerida.")]
+        public decimal Total { get; set; }
     }
+
+
 }

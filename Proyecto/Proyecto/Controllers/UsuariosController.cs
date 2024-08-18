@@ -66,7 +66,7 @@ namespace Proyecto.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodegas);
+            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodega);
             return View(usuarios);
         }
 
@@ -120,7 +120,7 @@ namespace Proyecto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodegas);
+            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodega);
             return View(usuarios);
         }
 

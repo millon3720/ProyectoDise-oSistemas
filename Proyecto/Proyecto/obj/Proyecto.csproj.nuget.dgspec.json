@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj": {}
+    "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj": {
+    "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj",
+        "projectUniqueName": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj",
         "projectName": "Proyecto",
-        "projectPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj",
+        "projectPath": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\Proyecto.csproj",
         "packagesPath": "C:\\Users\\josed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josed\\OneDrive\\Escritorio\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\obj\\",
+        "outputPath": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\josed\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

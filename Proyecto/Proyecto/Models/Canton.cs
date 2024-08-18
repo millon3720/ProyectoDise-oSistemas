@@ -11,15 +11,14 @@ namespace Proyecto.Models
 
         [Required(ErrorMessage = "El nombre del cantón es requerido.")]
         public string Nombre { get; set; }
+
         [ForeignKey("Provincia")]
         public int IdProvincia { get; set; }
         public Provincia Provincia { get; set; }
 
-       
-        public List<Distrito> Distrito { get; set; }
-        
-        public List<Bodegas> Bodegas { get; set; }
-       
-        public List<Proveedores> Proveedores { get; set; }
+        public List<Distrito> Distritos { get; set; } = new List<Distrito>();
+        public List<Bodegas> Bodegas { get; set; } = new List<Bodegas>();
+        public List<Proveedores> Proveedores { get; set; } = new List<Proveedores>();
     }
+
 }

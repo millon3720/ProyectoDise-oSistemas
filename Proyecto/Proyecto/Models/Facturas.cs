@@ -5,13 +5,14 @@ namespace Proyecto.Models
 {
     public class Facturas
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdFactura { get; set; }
+
         [ForeignKey("Proveedores")]
         public int IdProveedor { get; set; }
         public Proveedores Proveedor { get; set; }
+
         [ForeignKey("Usuarios")]
         public int IdUsuario { get; set; }
         public Usuarios Usuario { get; set; }
@@ -27,7 +28,8 @@ namespace Proyecto.Models
 
         public decimal? MontoDeuda { get; set; }
 
-        
         public List<ProductoFactura> ProductoFactura { get; set; }
     }
+
+
 }

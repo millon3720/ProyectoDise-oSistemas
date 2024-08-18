@@ -56,13 +56,13 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Número de bodega:</label>
                 <div class="col-sm-8">
-                    <select asp-for="IdBodegas" class="form-control" asp-items="ViewBag.IdBodegas">
+                    <select asp-for="IdBodega" class="form-control" asp-items="ViewBag.IdBodegas">
                         <option selected disabled value="">Seleccione una bodega</option>
                         <option selected>Bodega 1</option>
                         <option>Bodega 2</option>
                         <option>Bodega 3</option>
                     </select>
-                    <span asp-validation-for="IdBodegas" class="text-danger"></span>
+                    <span asp-validation-for="IdBodega" class="text-danger"></span>
                 </div>
             </div>
         </form>

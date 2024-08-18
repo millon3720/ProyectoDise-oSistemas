@@ -10,7 +10,7 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Cedula)
+                @* @Html.DisplayNameFor(model => model.Cedula) *@
             </dt>
             <dd class="col-sm-8">
                 208060466
@@ -28,7 +28,7 @@
                 Suli
             </dd>
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Telefono)
+                @Html.DisplayNameFor(model => model.Telefono1)
             </dt>
             <dd class="col-sm-8">
                 62819567
@@ -150,6 +150,6 @@
     </tbody>
 </table>
 <div class="mt-3">
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Cedula">Editar</a> |
+    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdProveedores">Editar</a> |
     <a asp-action="Index" class="btn btn-secondary ml-2">Volver a la Lista</a>
 </div>
