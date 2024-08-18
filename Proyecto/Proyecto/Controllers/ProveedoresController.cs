@@ -22,8 +22,8 @@ namespace Proyecto.Controllers
         // GET: Proveedores
         public async Task<IActionResult> Index()
         {
-            var appDbContext = _context.Proveedores.Include(p => p.Canton).Include(p => p.Distrito).Include(p => p.Provincia);
-            return View(await appDbContext.ToListAsync());
+            //var appDbContext = _context.Proveedores.Include(p => p.Canton).Include(p => p.Distrito).Include(p => p.Provincia);
+            return View();
         }
 
         // GET: Proveedores/Details/5

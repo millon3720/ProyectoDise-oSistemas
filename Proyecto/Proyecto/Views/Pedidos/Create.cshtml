@@ -14,16 +14,16 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group row mb-3">
-                <label asp-for="IdProveedor" class="col-sm-4 col-form-label">Proveedor</label>
+                <label asp-for="IdProveedores" class="col-sm-4 col-form-label">Proveedor</label>
                 <div class="col-sm-8">
-                    <select asp-for="IdProveedor" class="form-control" asp-items="ViewBag.Nombre">
+                    <select asp-for="IdProveedores" class="form-control" asp-items="ViewBag.Nombre">
                         <option value="0">Seleccione un Proveedor</option>
                         <option value="1">Jose Millon</option>
                         <option value="2">Daniel Marin</option>
                         <option value="3">Pablo Sanchez</option>
                         <option value="4">Isaac Núñez</option>
                     </select>
-                    <span asp-validation-for="IdProveedor" class="text-danger"></span>
+                    <span asp-validation-for="IdProveedores" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row mb-3">
