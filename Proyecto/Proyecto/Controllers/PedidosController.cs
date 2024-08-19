@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Proyecto.Data;
 using Proyecto.Models;
 
@@ -22,34 +23,36 @@ namespace Proyecto.Controllers
         // GET: Pedidos
         public async Task<IActionResult> Index()
         {
-            return View("Index");
-            //return _context.Pedidos != null ? 
-            //            View(await _context.Pedidos.ToListAsync()) :
-            //            Problem("Entity set 'AppDbContext.Pedidos'  is null.");
+            var appDbContext = _context.Pedidos.Include(p => p.Proveedores).Include(p => p.Usuario);
+            return View(await appDbContext.ToListAsync());
         }
 
         // GET: Pedidos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            //if (id == null || _context.Pedidos == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null || _context.Pedidos == null)
+            {
+                return NotFound();
+            }
 
-            //var pedidos = await _context.Pedidos
-            //    .FirstOrDefaultAsync(m => m.IdPedidos == id);
-            //if (pedidos == null)
-            //{
-            //    return NotFound();
-            //}
-            return View("Details");
-            //return View(pedidos);
+            var pedidos = await _context.Pedidos
+                .FirstOrDefaultAsync(m => m.IdPedidos == id);
+            if (pedidos == null)
+            {
+                return NotFound();
+            }
+            return View(pedidos);
         }
 
         // GET: Pedidos/Create
         public IActionResult Create()
         {
-            return View();
+            var model = new PedidoEditViewModel
+            {
+                Proveedores = _context.Proveedores,
+                Productos = _context.Productos
+            };
+            return View(model);
         }
 
         // POST: Pedidos/Create
@@ -57,30 +60,47 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPedidos,IdProveedor,Fecha,IdUsuario")] Pedidos pedidos)
+        public async Task<IActionResult> Create(PedidoEditViewModel model, string SelectedProductIds)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    _context.Add(pedidos);
-            //    await _context.SaveChangesAsync();
-            //    return RedirectToAction(nameof(Index));
-            //}
-            return View();
-        }
 
+            
+            _context.Add(model.Pedidos);
+            await _context.SaveChangesAsync();
+
+            // Obtener el ID del proveedor recién creado
+            var pedidoId = model.Pedidos.IdPedidos;
+
+            if (!string.IsNullOrEmpty(SelectedProductIds))
+            {
+                var selectedProductIds = JsonConvert.DeserializeObject<List<int>>(SelectedProductIds);
+
+                foreach (var productoId in selectedProductIds)
+                {
+                    var productosPedidos = new ProductosPedidos
+                    {
+                        IdPedidos = pedidoId,
+                        IdProducto = productoId
+                    };
+                    _context.ProductosPedidos.Add(productosPedidos);
+                }
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+       
         // GET: Pedidos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            //if (id == null || _context.Pedidos == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null || _context.Pedidos == null)
+            {
+                return NotFound();
+            }
 
-            //var pedidos = await _context.Pedidos.FindAsync(id);
-            //if (pedidos == null)
-            //{
-            //    return NotFound();
-            //}
+            var pedidos = await _context.Pedidos.FindAsync(id);
+            if (pedidos == null)
+            {
+                return NotFound();
+            }
             return View("Edit");
         }
 
@@ -122,21 +142,19 @@ namespace Proyecto.Controllers
         // GET: Pedidos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            //if (id == null || _context.Pedidos == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null || _context.Pedidos == null)
+            {
+                return NotFound();
+            }
 
-            //var pedidos = await _context.Pedidos
-            //    .FirstOrDefaultAsync(m => m.IdPedidos == id);
-            //if (pedidos == null)
-            //{
-            //    return NotFound();
-            //}
+            var pedidos = await _context.Pedidos
+                .FirstOrDefaultAsync(m => m.IdPedidos == id);
+            if (pedidos == null)
+            {
+                return NotFound();
+            }
 
-            //return View(pedidos);
-            return View("Delete");
-
+            return View(pedidos);
         }
 
         // POST: Pedidos/Delete/5
