@@ -10,10 +10,15 @@
 
 }
 <h1>Bodegas</h1>
-
+@if (Rol == "Administrador")
+{
+    <p>
+        <a asp-action="Create" class="btn btn-success">Crear Nueva</a>
+    </p>
+}
 <table class="table table-striped table-hover">
     <thead>
-        <tr class ="table-dark table-primary">
+        <tr class="table-dark table-primary">
             <th>
                 Numero Bodega
             </th>
@@ -35,62 +40,70 @@
             <th></th>
         </tr>
     </thead>
-    <tbody      
-      @foreach (var item in Model) 
-      {
-                @if (contador > 0)
-                {
-                    contador = 0;
-                    <tr class ="table-secondary">
-                        <td>
-                    @Html.DisplayFor(modelItem => item.IdBodegas)
-                        </td>
-                        <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                         </td>
-                        <td>
-                    @Html.DisplayFor(modelItem => item.Canton.Nombre)
-                        </td>
-                        <td>
-                    @Html.DisplayFor(modelItem => item.Distrito.Nombre)
-                        </td>
-                        <td>
-                    @Html.DisplayFor(modelItem => item.DireccionExacta)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdBodegas">Editar</a> |
-                            <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdBodegas">Detalles</a> |
-                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdBodegas">Eliminar</a>
-                        </td>
-                    </tr>
-                }
-                else
-                {
-                    contador ++;
-                    <tr class="table-light">
-                                <td>
-                    @Html.DisplayFor(modelItem => item.IdBodegas)
-                                </td>
-                                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                                 </td>
-                                <td>
-                    @Html.DisplayFor(modelItem => item.Canton.Nombre)
-                                </td>
-                                <td>
-                    @Html.DisplayFor(modelItem => item.Distrito.Nombre)
-                                </td>
-                                <td>
-                    @Html.DisplayFor(modelItem => item.DireccionExacta)
-                                </td>
-                        <td>
-                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdBodegas">Editar</a> |
-                            <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdBodegas">Detalles</a> |
-                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdBodegas">Eliminar</a>
-                        </td>
-                    </tr>
+    <tbody @foreach (var item in Model)
+    {
+        @if (contador > 0)
+        {
+            contador = 0;
+                                    <tr class ="table-secondary">
+                                        <td>
+                    @item.IdBodegas
+                                        </td>
+                                        <td>
+                    @item.Nombre
+                                         </td>
+                                                 <td>
+                    @item.Provincia.Nombre
+                                                </td>
+                                        <td>
+                    @item.Canton.Nombre
+                                        </td>
+                                        <td>
+                    @item.Distrito.Nombre
+                                        </td>
+                                        <td>
+                    @item.DireccionExacta
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdBodegas">Editar</a> |
+                                            <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdBodegas">Detalles</a> |
+                                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdBodegas">Eliminar</a>
+                                        </td>
+                                    </tr>
+        }
+        else
+        {
+            contador++;
+                                    <tr class="table-light">
 
-                }
-      }
+                                    <td>@item.IdBodegas</td>
+                                                <td>
+                    @item.Nombre
+                                                 </td>
+                                                           <td>
+                    @item.Provincia.Nombre
+                                                        </td>
+                                                <td>
+                    @item.Canton.Nombre
+                                                </td>
+                                                <td>
+                    @item.Distrito.Nombre
+                                                </td>
+                                                <td>
+                    @item.DireccionExacta
+                                                </td>
+                                                <td>
+                                                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdBodegas">Detalles</a>
+
+                    @if (Rol == "Administrador")
+                    {
+                                                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdBodegas">Editar</a>
+                                                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdBodegas">Eliminar</a>
+                    }
+                                        </td>
+                                    </tr>
+
+        }
+    }
     </tbody>
 </table>
