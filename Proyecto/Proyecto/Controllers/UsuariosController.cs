@@ -78,31 +78,32 @@ namespace Proyecto.Controllers
 
 
 
-
-        // GET: Usuarios/Edit/5
+        //EDITT
         public async Task<IActionResult> Edit(int? id)
         {
-            //if (id == null || _context.Usuarios == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            //var usuarios = await _context.Usuarios.FindAsync(id);
-            //if (usuarios == null)
-            //{
-            //    return NotFound();
-            //}
-            //ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodegas);
-            //return View(usuarios);
-            return View("Edit");
+            // Obtener el usuario con el Id especificado, incluyendo la información de Bodega
+            var usuario = await _context.Usuarios
+                .Include(u => u.Bodegas.IdBodegas) // Asegúrate de incluir la bodega si es necesario
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
+
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            // Pasar el usuario a la vista
+            return View(usuario);
         }
 
         // POST: Usuarios/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Cedula,Nombre,Apellidos,Telefono,Puesto,IdBodegas")] Usuarios usuarios)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Cedula,Nombre,Apellidos,Telefono,Correo,Usuario,Clave,Puesto,IdBodega")] Usuarios usuarios)
         {
             if (id != usuarios.IdUsuario)
             {
@@ -118,7 +119,7 @@ namespace Proyecto.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UsuariosExists(usuarios.IdUsuario))
+                    if (!UsuarioExists(usuarios.IdUsuario))
                     {
                         return NotFound();
                     }
@@ -129,27 +130,38 @@ namespace Proyecto.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodega);
             return View(usuarios);
         }
 
-        // GET: Usuarios/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        private bool UsuarioExists(int id)
         {
-            //    if (id == null || _context.Usuarios == null)
-            //    {
-            //        return NotFound();
-            //    }
+            return _context.Usuarios.Any(e => e.IdUsuario == id);
+        }
+    
 
-            //    var usuarios = await _context.Usuarios
-            //        .Include(u => u.Bodegas)
-            //        .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            //    if (usuarios == null)
-            //    {
-            //        return NotFound();
-            //    }
 
-            return View("delete");
+
+
+
+
+
+    // GET: Usuarios/Delete/5
+    public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || _context.Usuarios == null)
+            {
+                return NotFound();
+            }
+
+            var usuarios = await _context.Usuarios
+                .Include(u => u.Bodegas)
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
+            if (usuarios == null)
+            {
+                return NotFound();
+            }
+
+            return View(usuarios);
         }
 
         // POST: Usuarios/Delete/5

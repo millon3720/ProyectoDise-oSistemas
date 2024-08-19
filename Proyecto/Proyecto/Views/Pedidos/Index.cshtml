@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<Proyecto.Models.Pedidos>
-
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
-    ViewData["Title"] = "Pedidos";
+    int contador = 0;
+
+    ViewData["Title"] = "Index";
 }
 
 <h1>Pedidos</h1>
@@ -28,61 +31,60 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="table-light">
-            <td>2</td>
-            <td>Knorr</td>
-            <td>15/6/20</td>
-            <td>María González</td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
-            </td>
-        </tr>
-        <tr class="table-secondary">
-            <td>3</td>
-            <td>Sardimar</td>
-            <td>20/7/20</td>
-            <td>Luis Pérez</td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>4</td>
-            <td>Del Monte</td>
-            <td>10/8/20</td>
-            <td>Ana Martínez</td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
-            </td>
-        </tr>
-        <tr class="table-secondary">
-            <td>5</td>
-            <td>Gallo</td>
-            <td>5/9/20</td>
-            <td>Carlos Ramírez</td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>6</td>
-            <td>Calvo</td>
-            <td>25/9/20</td>
-            <td>Juan Pérez</td>
-            <td>
-                <a asp-action="Edit" class="btn btn-warning" asp-route-id="">Editar</a> |
-                <a asp-action="Details" class="btn btn-info" asp-route-id="">Detalles</a> |
-                <a asp-action="Delete" class="btn btn-danger" asp-route-id="">Eliminar</a>
-            </td>
-        </tr>
+
+        @foreach (var item in Model)
+        {
+            @if (contador > 0)
+            {
+                contador = 0;
+                <tr class="table-secondary">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdPedidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdProveedores)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUsuario)
+                    </td>
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdUsuario">Detalles</a>     
+                        {
+                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdUsuario">Editar</a>
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdUsuario">Eliminar</a>
+                        }
+                </tr>
+            }
+            else
+            {
+                contador++;
+                <tr class="table-light">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdPedidos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdProveedores)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdUsuario)
+                    </td>
+                    <td>
+                        <a asp-action="Details" class="btn btn-info" asp-route-id="@item.IdUsuario">Detalles</a>                       
+                        {
+                            <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdUsuario">Editar</a>
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdUsuario">Eliminar</a>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+
+
     </tbody>
 
 </table>

@@ -22,11 +22,14 @@ namespace Proyecto.Controllers
         // GET: Pedidos
         public async Task<IActionResult> Index()
         {
-            return View("Index");
-            //return _context.Pedidos != null ? 
-            //            View(await _context.Pedidos.ToListAsync()) :
-            //            Problem("Entity set 'AppDbContext.Pedidos'  is null.");
+            var pedidos = await _context.Pedidos.ToListAsync();
+            return View(pedidos);
         }
+
+
+
+
+
 
         // GET: Pedidos/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -118,6 +121,12 @@ namespace Proyecto.Controllers
             }
             return View(pedidos);
         }
+
+
+
+
+
+
 
         // GET: Pedidos/Delete/5
         public async Task<IActionResult> Delete(int? id)
