@@ -1,6 +1,10 @@
-﻿@model Proyecto.Models.Bodegas
+﻿@model Proyecto.Models.BodegasModelo
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
+    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
+    int contador = 0;
     ViewData["Title"] = "Details";
     
 }
@@ -8,36 +12,47 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Bodegas</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.Provincia)
-        </dt>
-        <dd class = "col-sm-8">
-               Alajuela
-        </dd>
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.Canton)
-        </dt>
-        <dd class = "col-sm-8">
-                San Carlos
-        </dd>
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.Distrito)
-        </dt>
-        <dd class = "col-sm-8">
-                Aguas Zarcas
-        </dd>
-        <dt class = "col-sm-4">
-            @Html.DisplayNameFor(model => model.DireccionExacta)
-        </dt>
-        <dd class = "col-sm-8">
-                200 metros este de la plaza comunal
-        </dd>
-     </dl>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">
+                Codigo Bodega:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Bodegas.IdBodegas
+            </dd>
+            <dt class="col-sm-4">
+                Nombre:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Bodegas.Nombre
+            </dd>
+            <dt class="col-sm-4">
+                Provincia:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Bodegas.Provincia.Nombre
+            </dd>
+            <dt class="col-sm-4">
+                Canton:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Bodegas.Canton.Nombre
+            </dd>
+            <dt class="col-sm-4">
+                Distrito:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Bodegas.Distrito.Nombre
+            </dd>
+            <dt class="col-sm-4">
+                Direccion Exacta:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Bodegas.DireccionExacta
+            </dd>
+        </dl>
     </div>
 </div>
-
 <br />
 <hr />
 <h4 class="card-title">Productos En Inventario</h4>
@@ -52,94 +67,59 @@
             <th>Cantidad Presentación</th>
             <th>Tipo Empaque</th>
             <th>Cantidad Empaque</th>
+            <th>Fecha Ingreso</th>
+            <th>Fecha Vencimiento</th>
             <th>Precio (₡)</th>
             <th></th>
 
         </tr>
     </thead>
     <tbody>
-        <tr class="table-secondary">
-            <td>1</td>
-            <td>Atún en lata</td>
-            <td>Atún en aceite de girasol</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>12 latas</td>
-            <td>2,500</td>
-            <td>
-                <input type="checkbox" id="checkbox1" name="checkbox1" value="valor1" checked />
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>2</td>
-            <td>Melocotones enlatados</td>
-            <td>Melocotones en conserva</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>24 latas</td>
-            <td>1,800</td>
-            <td>
-                <input type="checkbox" id="checkbox2" name="checkbox2" value="valor2" checked />
-            </td>
-        </tr>
-        <tr class="table-secondary">
-            <td>3</td>
-            <td>Maíz enlatado</td>
-            <td>Maíz dulce en conserva</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>20 latas</td>
-            <td>1,600</td>
-            <td>
-                <input type="checkbox" id="checkbox3" name="checkbox3" value="valor3" checked />
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>4</td>
-            <td>Sardinas en lata</td>
-            <td>Sardinas en salsa de tomate</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>10 latas</td>
-            <td>2,200</td>
-            <td>
-                <input type="checkbox" id="checkbox4" name="checkbox4" value="valor4" checked />
-            </td>
-        </tr>
-        <tr class="table-secondary">
-            <td>5</td>
-            <td>Ensalada de frutas enlatada</td>
-            <td>Frutas variadas en almíbar</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>6 latas</td>
-            <td>1,500</td>
-            <td>
-                <input type="checkbox" id="checkbox5" name="checkbox5" value="valor5" checked />
-            </td>
-        </tr>
-        <tr class="table-light">
-            <td>6</td>
-            <td>Champiñones enlatados</td>
-            <td>Champiñones en conserva</td>
-            <td>Lata</td>
-            <td>1 unidad</td>
-            <td>Caja</td>
-            <td>15 latas</td>
-            <td>2,000</td>
-            <td>
-                <input type="checkbox" id="checkbox6" name="checkbox6" value="valor6" checked />
-            </td>
-        </tr>
+        @foreach (var item in Model.ProductosBodegas)
+        {
+            @if (contador > 0)
+            {
+                contador = 0;
+                <tr class="table-secondary">
+                    <td>@item.Productos.IdProductos</td>
+                    <td>@item.Productos.Nombre</td>
+                    <td>@item.Productos.Descripcion</td>
+                    <td>@item.Productos.Presentacion</td>
+                    <td>@item.Productos.CantidadPresentacion</td>
+                    <td>@item.Productos.TipoEmpaque</td>
+                    <td>@item.Productos.CantidadEmpaque</td>
+                    <td>@item.FechaIngreso</td>
+                    <td>@item.FechaVencimiento</td>
+                    <td>@item.Productos.Precio</td>
+
+                </tr>
+            }
+            else
+            {
+                contador++;
+                <tr class="table-light">
+                    <td>@item.Productos.IdProductos</td>
+                    <td>@item.Productos.Nombre</td>
+                    <td>@item.Productos.Descripcion</td>
+                    <td>@item.Productos.Presentacion</td>
+                    <td>@item.Productos.CantidadPresentacion</td>
+                    <td>@item.Productos.TipoEmpaque</td>
+                    <td>@item.Productos.CantidadEmpaque</td>
+                    <td>@item.FechaIngreso</td>
+                    <td>@item.FechaVencimiento</td>
+                    <td>@item.Productos.Precio</td>
+
+                </tr>
+            }
+
+        }
     </tbody>
 </table>
 
 <div class="mt-3">
-    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.IdBodegas">Editar</a> |
+    @if (Rol == "Administrador")
+    {    
+        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model?.Bodegas.IdBodegas">Editar</a> 
+    }
     <a asp-action="Index" class="btn btn-secondary ml-2">Volver a la Lista</a>
 </div>

@@ -48,7 +48,7 @@ namespace Proyecto.Controllers
             var provincias = await _context.Provincia.ToListAsync();
             var cantones = await _context.Canton.ToListAsync();
             var distritos = await _context.Distrito.ToListAsync();
-            var viewModel = new ProveedorEditViewModel
+            var viewModel = new ProveedorModel
             {
                 Proveedor = proveedorConProductos.First().Proveedores, 
                 ProductosProveedor = proveedorConProductos.Select(pp => pp.Productos),  
@@ -62,7 +62,7 @@ namespace Proyecto.Controllers
         // GET: Proveedor/Create
         public IActionResult Create()
         {
-            var model = new ProveedorEditViewModel
+            var model = new ProveedorModel
             {
                 Provincias = _context.Provincia,
                 Productos = _context.Productos
@@ -72,7 +72,7 @@ namespace Proyecto.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProveedorEditViewModel model, string SelectedProductIds)
+        public async Task<IActionResult> Create(ProveedorModel model, string SelectedProductIds)
         {
           
 
@@ -126,7 +126,7 @@ namespace Proyecto.Controllers
             var distritos = await _context.Distrito.ToListAsync();
             var Productos = await _context.Productos.ToListAsync();
 
-            var viewModel = new ProveedorEditViewModel
+            var viewModel = new ProveedorModel
             {
                 Proveedor = proveedorConProductos.First().Proveedores, 
                 ProductosProveedor = proveedorConProductos.Select(pp => pp.Productos),  
@@ -146,7 +146,7 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, ProveedorEditViewModel viewModel, string SelectedProductIds)
+        public async Task<IActionResult> Edit(int id, ProveedorModel viewModel, string SelectedProductIds)
         {
             if (id != viewModel.Proveedor.IdProveedores)
             {
@@ -220,7 +220,7 @@ namespace Proyecto.Controllers
             var provincias = await _context.Provincia.ToListAsync();
             var cantones = await _context.Canton.ToListAsync();
             var distritos = await _context.Distrito.ToListAsync();
-            var viewModel = new ProveedorEditViewModel
+            var viewModel = new ProveedorModel
             {
                 Proveedor = proveedorConProductos.First().Proveedores, 
                 Provincias = provincias.OrderBy(p => p.Nombre),
