@@ -1,6 +1,10 @@
 ﻿@model Proyecto.Models.Usuarios
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 @{
+    string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
+    int contador = 0;
     ViewData["Title"] = "Details";
 }
 
@@ -11,40 +15,40 @@
         <hr />
         <dl class="row">
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Cedula)
+                Cedula
             </dt>
             <dd class="col-sm-8">
-                123456789
+                @Model.Cedula
             </dd>
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Nombre)
+                Nombre
             </dt>
             <dd class="col-sm-8">
-                Luis 
+                @Model.Nombre
             </dd>
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Apellidos)
+                Apellidos
             </dt>
             <dd class="col-sm-8">
-                Rodriguez Zeledón
+                @Model.Apellidos
             </dd>
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Telefono)
+                Telefono
             </dt>
             <dd class="col-sm-8">
-                3333-3333
+                @Model.Telefono
             </dd>
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.Puesto)
+                Puesto
             </dt>
             <dd class="col-sm-8">
-                Gondolero
+                @Model.Puesto
             </dd>
             <dt class="col-sm-4">
-                @Html.DisplayNameFor(model => model.IdBodega)
+                Bodega
             </dt>
             <dd class="col-sm-8">
-                Bodega 1
+                @Model.IdBodega
             </dd>
         </dl>
     </div>

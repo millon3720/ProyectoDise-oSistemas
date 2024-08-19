@@ -45,14 +45,18 @@
             <dd class="col-sm-8">
                 Bodega 1
             </dd>
-		</dl>
+        </dl>
     </div>
 
 </div>
 <br />
 <div class="form-group row">
     <div class="col-sm-12">
-        <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
-        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdUsuario" />
+            <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
+            <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+        </form>
+
     </div>
 </div>
