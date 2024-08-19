@@ -26,7 +26,7 @@ namespace Proyecto.Controllers
 
             List<Usuarios> Login = _db.Usuarios.Where(tp => tp.Usuario == Usuario && tp.Clave == Clave).ToList();
 
-            if (Login != null)
+            if (Login != null && Login.Count>0)
             {
                 foreach (var item in Login)
                 {
@@ -40,7 +40,7 @@ namespace Proyecto.Controllers
             }
             else
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Index", "Login");
             }
 
         }

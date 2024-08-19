@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cd5ModoJgYgjWdoR9CcCXsoogy+IwEAKflvjKg3U6gE=",
+  "Hash": "ZM9KYwIlVTKpeGvfEdIdCPfnTi3I4Oc1/hkP5q6GnaI=",
   "Source": "Proyecto",
   "BasePath": "_content/Proyecto",
   "Mode": "Default",
@@ -167,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\js\\ValidarCombos.js",
+      "SourceId": "Proyecto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\",
+      "BasePath": "_content/Proyecto",
+      "RelativePath": "js/ValidarCombos.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ValidarCombos.js"
     },
     {
       "Identity": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
