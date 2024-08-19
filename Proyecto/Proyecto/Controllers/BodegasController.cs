@@ -29,24 +29,22 @@ namespace Proyecto.Controllers
         // GET: Bodegas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            return View("Details");
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            //if (id == null || _context.Bodegas == null)
-            //{
-            //    return NotFound();
-            //}
+            var bodegas = await _context.Bodegas
+                .Include(b => b.Canton)
+                .Include(b => b.Distrito)
+                .Include(b => b.Provincia)
+                .FirstOrDefaultAsync(m => m.IdBodegas == id);
+            if (bodegas == null)
+            {
+                return NotFound();
+            }
 
-            //var bodegas = await _context.Bodegas
-            //    .Include(b => b.Canton)
-            //    .Include(b => b.Distrito)
-            //    .Include(b => b.Provincia)
-            //    .FirstOrDefaultAsync(m => m.IdBodegas == id);
-            //if (bodegas == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return View(bodegas);
+            return View(bodegas);
         }
 
         // GET: Bodegas/Create
@@ -80,22 +78,20 @@ namespace Proyecto.Controllers
         // GET: Bodegas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            return View("Edit");
+            if (id == null || _context.Bodegas == null)
+            {
+                return NotFound();
+            }
 
-            //if (id == null || _context.Bodegas == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var bodegas = await _context.Bodegas.FindAsync(id);
-            //if (bodegas == null)
-            //{
-            //    return NotFound();
-            //}
-            //ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", bodegas.IdCanton);
-            //ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", bodegas.IdDistrito);
-            //ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", bodegas.IdProvincia);
-            //return View(bodegas);
+            var bodegas = await _context.Bodegas.FindAsync(id);
+            if (bodegas == null)
+            {
+                return NotFound();
+            }
+            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", bodegas.IdCanton);
+            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", bodegas.IdDistrito);
+            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", bodegas.IdProvincia);
+            return View(bodegas);
         }
 
         // POST: Bodegas/Edit/5
@@ -140,24 +136,22 @@ namespace Proyecto.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
 
-            return View("Delete");
+            if (id == null || _context.Bodegas == null)
+            {
+                return NotFound();
+            }
 
-            //if (id == null || _context.Bodegas == null)
-            //{
-            //    return NotFound();
-            //}
+            var bodegas = await _context.Bodegas
+                .Include(b => b.Canton)
+                .Include(b => b.Distrito)
+                .Include(b => b.Provincia)
+                .FirstOrDefaultAsync(m => m.IdBodegas == id);
+            if (bodegas == null)
+            {
+                return NotFound();
+            }
 
-            //var bodegas = await _context.Bodegas
-            //    .Include(b => b.Canton)
-            //    .Include(b => b.Distrito)
-            //    .Include(b => b.Provincia)
-            //    .FirstOrDefaultAsync(m => m.IdBodegas == id);
-            //if (bodegas == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //return View(bodegas);
+            return View(bodegas);
         }
 
         // POST: Bodegas/Delete/5
