@@ -5,6 +5,8 @@
     string Rol = HttpContextAccessor.HttpContext.Session.GetString("Puesto");
     ViewData["Title"] = "Create";
 }
+<h1>Crear Proveedor</h1>
+
 <form asp-action="Create" method="post">
     <input type="hidden" id="selectedProducts" name="SelectedProductIds" value="" />
     <div class="card">
