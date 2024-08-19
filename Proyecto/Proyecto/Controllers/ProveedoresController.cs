@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Proyecto.Data;
 using Proyecto.Models;
 
@@ -127,38 +128,61 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProveedores,Cedula,Correo,Nombre,Telefono,IdProvincia,IdCanton,IdDistrito,DireccionExacta")] Proveedores proveedores)
+        public async Task<IActionResult> Edit(int id, ProveedorEditViewModel viewModel, string selectedProducts)
         {
-            if (id != proveedores.IdProveedores)
+            if (id != viewModel.Proveedor.IdProveedores)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
+                var proveedor = await _context.Proveedores.FindAsync(id);
+                if (proveedor == null)
                 {
-                    _context.Update(proveedores);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                proveedor.Nombre = viewModel.Proveedor.Nombre;
+                proveedor.Correo = viewModel.Proveedor.Correo;
+                proveedor.Telefono1 = viewModel.Proveedor.Telefono1;
+                proveedor.Telefono2 = viewModel.Proveedor.Telefono2;
+                proveedor.IdProvincia = viewModel.Proveedor.IdProvincia; // Ahora usa int?
+                proveedor.IdCanton = viewModel.Proveedor.IdCanton;
+                proveedor.IdDistrito = viewModel.Proveedor.IdDistrito;
+                proveedor.DireccionExacta = viewModel.Proveedor.DireccionExacta;
+
+                _context.Update(proveedor);
+
+                // Actualizar productos
+                var productosExistentes = _context.ProductoProveedores.Where(pp => pp.IdProveedor == id);
+                _context.ProductoProveedores.RemoveRange(productosExistentes);
+
+                if (viewModel.SelectedProductIds != null && viewModel.SelectedProductIds.Any())
                 {
-                    if (!ProveedoresExists(proveedores.IdProveedores))
+                    foreach (var productoId in viewModel.SelectedProductIds)
                     {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
+                        var productoProveedor = new ProductoProveedores
+                        {
+                            IdProveedor = id,
+                            IdProducto = productoId
+                        };
+                        _context.ProductoProveedores.Add(productoProveedor);
                     }
                 }
+
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", proveedores.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", proveedores.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", proveedores.IdProvincia);
-            return View(proveedores);
+            catch (DbUpdateConcurrencyException)
+            {
+                return View(viewModel);
+            }
         }
+
+
+
+
 
         // GET: Proveedores/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -211,5 +235,7 @@ namespace Proyecto.Controllers
         {
           return (_context.Proveedores?.Any(e => e.IdProveedores == id)).GetValueOrDefault();
         }
+
+      
     }
 }

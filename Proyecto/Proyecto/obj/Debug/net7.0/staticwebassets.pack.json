@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\img\\Salir.png"
     },
     {
+      "Id": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\js\\ValidarCombos.js",
+      "PackagePath": "staticwebassets\\js\\ValidarCombos.js"
+    },
+    {
       "Id": "C:\\Users\\josed\\Desktop\\ProyectoDise-oSistemas\\Proyecto\\Proyecto\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
