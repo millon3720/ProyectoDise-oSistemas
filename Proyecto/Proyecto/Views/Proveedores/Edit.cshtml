@@ -9,13 +9,11 @@
 <form asp-action="Edit" method="post">
     <div class="card">
         <div class="card-body">
-            <!-- Campo oculto para almacenar el valor de la provincia -->
             <input type="hidden" id="Prov" value="@Model.Proveedor.IdProvincia" />
-            <!-- Campo oculto para almacenar el valor del cantón -->
             <input type="hidden" id="Can" value="@Model.Proveedor.IdCanton" />
-            <!-- Campo oculto para almacenar el valor del distrito -->
             <input type="hidden" id="Dis" value="@Model.Proveedor.IdDistrito" />
             <input type="hidden" id="selectedProducts" name="SelectedProductIds" value="" />
+
 
             <h4 class="card-title">Detalles de Proveedor</h4>
             <hr />
@@ -59,17 +57,7 @@
                 <div class="col-sm-8">
                     <select class="form-control" id="provincias" name="Proveedor.IdProvincia">
                         <option value="">Seleccione una provincia</option>
-                       @*  @foreach (var item in Model.Provincias)
-                        {
-                            @if (item.IdProvincia == Model.Proveedor.IdProvincia)
-                            {
-                                <option value="@item.IdProvincia" selected>@item.Nombre</option>
-                            }
-                            else
-                            {
-                                <option value="@item.IdProvincia">@item.Nombre</option>
-                            }
-                        } *@
+                       
                     </select>
                     <span asp-validation-for="Proveedor.IdProvincia" class="text-danger"></span>
                 </div>
@@ -80,17 +68,7 @@
                 <div class="col-sm-8">
                     <select class="form-control" id="cantones" name="Proveedor.IdCanton">
                         <option value="" >Seleccione un cantón</option>
-                       @*  @foreach (var item in Model.Cantones)
-                        {
-                            @if (item.IdCanton == Model.Proveedor.IdCanton)
-                            {
-                                <option value="@item.IdCanton" selected>@item.Nombre</option>
-                            }
-                            else
-                            {
-                                <option value="@item.IdCanton">@item.Nombre</option>
-                            }
-                        } *@
+                       
                     </select>
                     <span asp-validation-for="Proveedor.IdCanton" class="text-danger"></span>
                 </div>
@@ -100,17 +78,7 @@
                 <div class="col-sm-8">
                     <select class="form-control" id="distritos" name="Proveedor.IdDistrito">
                         <option value="">Seleccione un distrito</option>
-                       @*  @foreach (var item in Model.Distritos)
-                        {
-                            @if (item.IdDistrito == Model.Proveedor.IdDistrito)
-                            {
-                                <option value="@item.IdDistrito" selected>@item.Nombre</option>
-                            }
-                            else
-                            {
-                                <option value="@item.IdDistrito">@item.Nombre</option>
-                            }
-                        } *@
+                      
                     </select>
                     <span asp-validation-for="Proveedor.IdDistrito" class="text-danger"></span>
                 </div>
@@ -170,7 +138,7 @@
                         @if (contador > 0)
                         {
                             contador = 0;
-                            <tr class="table-secondary">
+                            <tr data-id="@item.IdProductos" class="table-secondary">
                                 <td>@item.IdProductos</td>
                                 <td>@item.Nombre</td>
                                 <td>@item.Descripcion</td>
@@ -187,7 +155,7 @@
                         else
                         {
                             contador++;
-                            <tr class="table-light">
+                            <tr data-id="@item.IdProductos" class="table-light">
                                 <td>@item.IdProductos</td>
                                 <td>@item.Nombre</td>
                                 <td>@item.Descripcion</td>
@@ -216,6 +184,7 @@
 </form>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/tablaseditprovedores.js"></script>
     <script src="~/js/validarcombos.js"></script>
 }
 

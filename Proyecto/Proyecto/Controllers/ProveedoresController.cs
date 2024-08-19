@@ -59,33 +59,51 @@ namespace Proyecto.Controllers
             return View(viewModel);
         }
 
-        // GET: Proveedores/Create
+        // GET: Proveedor/Create
         public IActionResult Create()
         {
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre");
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre");
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre");
-            return View();
+            var model = new ProveedorEditViewModel
+            {
+                Provincias = _context.Provincia,
+                Productos = _context.Productos
+            };
+            return View(model);
         }
 
-        // POST: Proveedores/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProveedores,Cedula,Correo,Nombre,Telefono,IdProvincia,IdCanton,IdDistrito,DireccionExacta")] Proveedores proveedores)
+        public async Task<IActionResult> Create(ProveedorEditViewModel model, string SelectedProductIds)
         {
-            if (ModelState.IsValid)
+          
+
+            // Agregar el proveedor al contexto
+            _context.Add(model.Proveedor);
+            await _context.SaveChangesAsync();
+
+            // Obtener el ID del proveedor recién creado
+            var proveedorId = model.Proveedor.IdProveedores;
+
+            if (!string.IsNullOrEmpty(SelectedProductIds))
             {
-                _context.Add(proveedores);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var selectedProductIds = JsonConvert.DeserializeObject<List<int>>(SelectedProductIds);
+
+                foreach (var productoId in selectedProductIds)
+                {
+                    var productoProveedor = new ProductoProveedores
+                    {
+                        IdProveedor = proveedorId,
+                        IdProducto = productoId
+                    };
+                    _context.ProductoProveedores.Add(productoProveedor);
+                }
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", proveedores.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", proveedores.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", proveedores.IdProvincia);
-            return View(proveedores);
+
+            await _context.SaveChangesAsync();
+            
+
+            return RedirectToAction(nameof(Index));
         }
+
 
         // GET: Proveedores/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -128,7 +146,7 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, ProveedorEditViewModel viewModel, string selectedProducts)
+        public async Task<IActionResult> Edit(int id, ProveedorEditViewModel viewModel, string SelectedProductIds)
         {
             if (id != viewModel.Proveedor.IdProveedores)
             {
@@ -147,20 +165,23 @@ namespace Proyecto.Controllers
                 proveedor.Correo = viewModel.Proveedor.Correo;
                 proveedor.Telefono1 = viewModel.Proveedor.Telefono1;
                 proveedor.Telefono2 = viewModel.Proveedor.Telefono2;
-                proveedor.IdProvincia = viewModel.Proveedor.IdProvincia; // Ahora usa int?
+                proveedor.IdProvincia = viewModel.Proveedor.IdProvincia;
                 proveedor.IdCanton = viewModel.Proveedor.IdCanton;
                 proveedor.IdDistrito = viewModel.Proveedor.IdDistrito;
                 proveedor.DireccionExacta = viewModel.Proveedor.DireccionExacta;
 
                 _context.Update(proveedor);
 
-                // Actualizar productos
+                // Eliminar los productos existentes
                 var productosExistentes = _context.ProductoProveedores.Where(pp => pp.IdProveedor == id);
                 _context.ProductoProveedores.RemoveRange(productosExistentes);
 
-                if (viewModel.SelectedProductIds != null && viewModel.SelectedProductIds.Any())
+                // Agregar los nuevos productos
+                if (!string.IsNullOrEmpty(SelectedProductIds))
                 {
-                    foreach (var productoId in viewModel.SelectedProductIds)
+                    var selectedProductIds = JsonConvert.DeserializeObject<List<int>>(SelectedProductIds);
+
+                    foreach (var productoId in selectedProductIds)
                     {
                         var productoProveedor = new ProductoProveedores
                         {
@@ -176,13 +197,10 @@ namespace Proyecto.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
+                // Manejo de excepciones en caso de concurrencia
                 return View(viewModel);
             }
         }
-
-
-
-
 
         // GET: Proveedores/Delete/5
         public async Task<IActionResult> Delete(int? id)
