@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using Proyecto.Data;
 using Proyecto.Models;
 
@@ -33,18 +34,29 @@ namespace Proyecto.Controllers
             {
                 return NotFound();
             }
+            var bodegasConProductos = await _context.ProductosBodega
+                .Where(pp => pp.IdBodega == id)
+                .Include(pp => pp.Productos)
+                .Include(pp => pp.Bodegas)
+                .ToListAsync();
 
-            var bodegas = await _context.Bodegas
-                .Include(b => b.Canton)
-                .Include(b => b.Distrito)
-                .Include(b => b.Provincia)
-                .FirstOrDefaultAsync(m => m.IdBodegas == id);
-            if (bodegas == null)
+            if (bodegasConProductos == null || !bodegasConProductos.Any())
             {
                 return NotFound();
             }
+            var provincias = await _context.Provincia.ToListAsync();
+            var cantones = await _context.Canton.ToListAsync();
+            var distritos = await _context.Distrito.ToListAsync();
+            var viewModel = new BodegasModelo
+            {
+                Bodegas = bodegasConProductos.First().Bodegas,
+                ProductosBodegas = bodegasConProductos, 
+                Provincias = provincias.OrderBy(p => p.Nombre),
+                Cantones = cantones.OrderBy(p => p.Nombre),
+                Distritos = distritos.OrderBy(p => p.Nombre)
+            };
 
-            return View(bodegas);
+            return View(viewModel);
         }
 
         // GET: Bodegas/Create
@@ -78,20 +90,36 @@ namespace Proyecto.Controllers
         // GET: Bodegas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Bodegas == null)
+            if (id == null)
             {
                 return NotFound();
             }
+            var bodegasConProductos = await _context.ProductosBodega
+                .Where(pp => pp.IdBodega == id)
+                .Include(pp => pp.Productos)
+                .Include(pp => pp.Bodegas)
+                .ToListAsync();
 
-            var bodegas = await _context.Bodegas.FindAsync(id);
-            if (bodegas == null)
+            if (bodegasConProductos == null || !bodegasConProductos.Any())
             {
                 return NotFound();
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", bodegas.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", bodegas.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", bodegas.IdProvincia);
-            return View(bodegas);
+            var provincias = await _context.Provincia.ToListAsync();
+            var cantones = await _context.Canton.ToListAsync();
+            var distritos = await _context.Distrito.ToListAsync();
+            var Productos = await _context.Productos.ToListAsync();
+            var viewModel = new BodegasModelo
+            {
+                Bodegas = bodegasConProductos.First().Bodegas,
+                ProductosBodegas = bodegasConProductos,
+                Provincias = provincias.OrderBy(p => p.Nombre),
+                Cantones = cantones.OrderBy(p => p.Nombre),
+                Distritos = distritos.OrderBy(p => p.Nombre),
+                Productos=Productos.OrderBy(p=>p.Nombre)
+
+            };
+
+            return View(viewModel);
         }
 
         // POST: Bodegas/Edit/5
@@ -99,38 +127,95 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdBodegas,IdProvincia,IdCanton,IdDistrito,DireccionExacta")] Bodegas bodegas)
+        public async Task<IActionResult> Edit(int id, [Bind("IdBodegas,Nombre,IdProvincia,IdCanton,IdDistrito,DireccionExacta")] Bodegas bodegas, string productosData)
         {
             if (id != bodegas.IdBodegas)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
+                // Deserializar los datos de productos
+                var productos = JsonConvert.DeserializeObject<List<ProductosBodega>>(productosData);
+
+                // Obtener los productos existentes para la bodega
+                var productosExistentes = _context.ProductosBodega.Where(pp => pp.IdBodega == id).ToList();
+
+                // Verificar si los productos existen en la tabla Productos
+                var idsProductosExistentes = _context.Productos.Select(p => p.IdProductos).ToHashSet();
+                var idsProductos = productos.Select(p => p.IdProducto).ToHashSet();
+
+                if (!idsProductos.All(id => idsProductosExistentes.Contains(id)))
                 {
-                    _context.Update(bodegas);
-                    await _context.SaveChangesAsync();
+                    // Manejar el caso cuando uno o más IdProducto no existen
+                    ModelState.AddModelError("", "Uno o más productos no existen en la base de datos.");
+                    return View(bodegas); // O redirige a la página de error
                 }
-                catch (DbUpdateConcurrencyException)
+
+                // Eliminar los productos que no están en la lista actual
+                var productosIds = productos.Select(p => p.IdProducto).ToHashSet();
+                var productosParaEliminar = productosExistentes.Where(pe => !productosIds.Contains(pe.IdProducto)).ToList();
+                _context.ProductosBodega.RemoveRange(productosParaEliminar);
+
+                // Actualizar o agregar productos
+                foreach (var producto in productos)
                 {
-                    if (!BodegasExists(bodegas.IdBodegas))
+                    var existingProduct = productosExistentes.FirstOrDefault(p => p.IdProducto == producto.IdProducto);
+
+                    if (existingProduct != null)
                     {
-                        return NotFound();
+                        // Actualizar el producto existente
+                        existingProduct.FechaIngreso = producto.FechaIngreso;
+                        existingProduct.FechaVencimiento = producto.FechaVencimiento;
+                        _context.ProductosBodega.Update(existingProduct);
                     }
                     else
                     {
-                        throw;
+                        // Agregar nuevo producto
+                        var nuevoProducto = new ProductosBodega
+                        {
+                            IdBodega = id,
+                            IdProducto = producto.IdProducto,
+                            FechaIngreso = producto.FechaIngreso,
+                            FechaVencimiento = producto.FechaVencimiento,
+                            Cantidad = producto.Cantidad
+                        };
+                        _context.ProductosBodega.Add(nuevoProducto);
                     }
                 }
-                return RedirectToAction(nameof(Index));
+
+                // Actualizar la bodega
+                _context.Update(bodegas);
+                await _context.SaveChangesAsync();
             }
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre", bodegas.IdCanton);
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre", bodegas.IdDistrito);
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre", bodegas.IdProvincia);
-            return View(bodegas);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BodegasExists(bodegas.IdBodegas))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones generales
+                ModelState.AddModelError("", $"Se produjo un error: {ex.Message}");
+                return View(bodegas);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
+
+
+
+
+
+
+
 
         // GET: Bodegas/Delete/5
         public async Task<IActionResult> Delete(int? id)

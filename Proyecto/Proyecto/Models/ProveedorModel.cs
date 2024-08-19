@@ -1,6 +1,6 @@
 ﻿namespace Proyecto.Models
 {
-    public class ProveedorEditViewModel
+    public class ProveedorModel
     {
         public Proveedores Proveedor { get; set; }
         public IEnumerable<Provincia> Provincias { get; set; }

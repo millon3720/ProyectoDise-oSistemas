@@ -1,4 +1,4 @@
-﻿@model Proyecto.Models.ProveedorEditViewModel
+﻿@model Proyecto.Models.ProveedorModel
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @{
@@ -6,7 +6,7 @@
     ViewData["Title"] = "Create";
 }
 <form asp-action="Create" method="post">
-    <input id="selectedProducts" name="SelectedProductIds" value="" />
+    <input type="hidden" id="selectedProducts" name="SelectedProductIds" value="" />
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Detalles de Proveedor</h4>

@@ -13,38 +13,38 @@
                 Codigo Bodega:
             </dt>
             <dd class="col-sm-8">
-                1
+                @Model.IdBodegas
+            </dd>
+            <dt class="col-sm-4">
+                Nombre:
+            </dt>
+            <dd class="col-sm-8">
+                @Model.Nombre
             </dd>
             <dt class="col-sm-4">
                 Provincia:
             </dt>
             <dd class="col-sm-8">
-                 Alajuela
+                @Model.Provincia.Nombre
             </dd>
             <dt class="col-sm-4">
                 Canton:
             </dt>
             <dd class="col-sm-8">
-                San Carlos
+                @Model.Canton.Nombre
             </dd>
             <dt class="col-sm-4">
                 Distrito:
             </dt>
             <dd class="col-sm-8">
-                Aguas Zarcas
+                @Model.Distrito.Nombre
             </dd>
             <dt class="col-sm-4">
                 Direccion Exacta: 
             </dt>
             <dd class="col-sm-8">
-                200 mts este de la iglesia 
-            </dd>
-            <dt class="col-sm-4">
-                Encargado:
-            </dt>
-            <dd class="col-sm-8">
-                Pablo Sanchez
-            </dd>
+                @Model.DireccionExacta
+            </dd>          
         </dl>
 
     </div>
@@ -53,7 +53,11 @@
 <br />
 <div class="form-group row">
     <div class="col-sm-12">
-        <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
-        <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdBodegas" />
+            <input type="submit" value="Eliminar" class="btn btn-danger float-right" /> |
+            <a asp-action="Index" class="btn btn-secondary">Volver a la Lista</a>
+        </form>
+        
     </div>
 </div>
