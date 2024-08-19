@@ -16,7 +16,7 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Cédula:</label>
                 <div class="col-sm-8">
-                    <input asp-for="Cedula" class="form-control" value="208060466"/>
+                    <input asp-for="Cedula" class="form-control" value="121222222" />
                     <span asp-validation-for="Cedula" class="text-danger"></span>
                 </div>
             </div>
@@ -24,7 +24,7 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Nombre:</label>
                 <div class="col-sm-8">
-                    <input asp-for="Nombre" class="form-control" value="Jose David"/>
+                    <input asp-for="Nombre" class="form-control" value="Isaac" />
                     <span asp-validation-for="Nombre" class="text-danger"></span>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="form-group row mb-3">
                 <label class="col-sm-4 col-form-label">Apellidos:</label>
                 <div class="col-sm-8">
-                    <input asp-for="Apellidos" class="form-control" value="Millon" />
+                    <input asp-for="Apellidos" class="form-control" value="Núñez" />
                     <span asp-validation-for="Apellidos" class="text-danger"></span>
                 </div>
             </div>
@@ -42,6 +42,30 @@
                 <div class="col-sm-8">
                     <input asp-for="Telefono" class="form-control" value="62819567" />
                     <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Correo:</label>
+                <div class="col-sm-8">
+                    <input asp-for="Correo" class="form-control" value="Isaac@example.com" />
+                    <span asp-validation-for="Correo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Usuario:</label>
+                <div class="col-sm-8">
+                    <input asp-for="Usuario" class="form-control" value="Isaac" />
+                    <span asp-validation-for="Usuario" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mb-3">
+                <label class="col-sm-4 col-form-label">Teléfono:</label>
+                <div class="col-sm-8">
+                    <input asp-for="Clave" class="form-control" value="123" />
+                    <span asp-validation-for="Clave" class="text-danger"></span>
                 </div>
             </div>
 
@@ -79,5 +103,7 @@
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

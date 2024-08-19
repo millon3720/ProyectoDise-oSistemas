@@ -19,56 +19,65 @@ namespace Proyecto.Controllers
             _context = context;
         }
 
+
         // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-            //var appDbContext = _context.Usuarios.Include(u => u.Bodegas);
-            //return View(await appDbContext.ToListAsync());
-            return View("Index");
+            var usuarios = await _context.Usuarios.ToListAsync();
+            return View(usuarios);
         }
+
+
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            //if (id == null || _context.Usuarios == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            //var usuarios = await _context.Usuarios
-            //    .Include(u => u.Bodegas)
-            //    .FirstOrDefaultAsync(m => m.IdUsuario == id);
-            //if (usuarios == null)
-            //{
-            //    return NotFound();
-            //}
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(m => m.IdUsuario == id);
 
-            return View("Details");
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return View(usuario);
+        }
+        // GET: Usuarios/Index
+        public async Task<IActionResult> Usuario()
+        {
+            var usuarios = await _context.Usuarios.ToListAsync();
+            return View(usuarios);
         }
 
+
+
+
         // GET: Usuarios/Create
-        public IActionResult Create()
+
+        public ActionResult Create()
         {
-            //ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta");
-            return View("create");
+            return View();
         }
 
         // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUsuario,Cedula,Nombre,Apellidos,Telefono,Puesto,IdBodegas")] Usuarios usuarios)
+        public async Task<IActionResult> Create([Bind("IdUsuario,Cedula,Nombre,Apellidos,Telefono,Correo,Usuario,Clave,Puesto,IdBodega")] Usuarios usuarios)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(usuarios);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdBodegas"] = new SelectList(_context.Bodegas, "IdBodegas", "DireccionExacta", usuarios.IdBodega);
-            return View(usuarios);
+
+            _context.Add(usuarios);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
+
+
+
+
 
         // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -127,18 +136,18 @@ namespace Proyecto.Controllers
         // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-        //    if (id == null || _context.Usuarios == null)
-        //    {
-        //        return NotFound();
-        //    }
+            //    if (id == null || _context.Usuarios == null)
+            //    {
+            //        return NotFound();
+            //    }
 
-        //    var usuarios = await _context.Usuarios
-        //        .Include(u => u.Bodegas)
-        //        .FirstOrDefaultAsync(m => m.IdUsuario == id);
-        //    if (usuarios == null)
-        //    {
-        //        return NotFound();
-        //    }
+            //    var usuarios = await _context.Usuarios
+            //        .Include(u => u.Bodegas)
+            //        .FirstOrDefaultAsync(m => m.IdUsuario == id);
+            //    if (usuarios == null)
+            //    {
+            //        return NotFound();
+            //    }
 
             return View("delete");
         }
@@ -157,14 +166,14 @@ namespace Proyecto.Controllers
             {
                 _context.Usuarios.Remove(usuarios);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UsuariosExists(int id)
         {
-          return (_context.Usuarios?.Any(e => e.IdUsuario == id)).GetValueOrDefault();
+            return (_context.Usuarios?.Any(e => e.IdUsuario == id)).GetValueOrDefault();
         }
     }
 }
