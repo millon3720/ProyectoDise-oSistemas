@@ -30,18 +30,34 @@ namespace Proyecto.Controllers
         // GET: Pedidos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Pedidos == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+            //var productoPedidos = await _context.ProductosPedidos
+            //    .Where(pp => pp.IdPedidos == id)
+            //    .Include(pp => pp.Producto)
+            //    .Include(pp => pp.Pedido)
+            //    .ToListAsync();
 
-            var pedidos = await _context.Pedidos
-                .FirstOrDefaultAsync(m => m.IdPedidos == id);
-            if (pedidos == null)
-            {
-                return NotFound();
-            }
-            return View(pedidos);
+            //if (productoPedidos == null || !productoPedidos.Any())
+            //{
+            //    return NotFound();
+            //}
+            //var proveedores = await _context.Proveedores.ToListAsync();
+            //var usuarios = await _context.Usuarios.ToListAsync();
+            //var Productos = await _context.Productos.ToListAsync();
+            //var viewModel = new PedidoEditViewModel
+
+            //{
+            //    Pedidos = productoPedidos.First().Pedido,
+            //    ProductosPedidos = productoPedidos.Select(pp => pp.Producto),
+            //    Usuarios = productoPedidos.OrderBy(p => p.Usuario),
+            //    Cantones = cantones.OrderBy(p => p.Nombre),
+            //    Distritos = distritos.OrderBy(p => p.Nombre)
+            //};
+            //return View(viewModel);
+            return View("Details");
         }
 
         // GET: Pedidos/Create
@@ -50,7 +66,8 @@ namespace Proyecto.Controllers
             var model = new PedidoEditViewModel
             {
                 Proveedores = _context.Proveedores,
-                Productos = _context.Productos
+                Productos = _context.Productos,
+                Usuarios = _context.Usuarios
             };
             return View(model);
         }
@@ -62,12 +79,9 @@ namespace Proyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PedidoEditViewModel model, string SelectedProductIds)
         {
-
-            
             _context.Add(model.Pedidos);
             await _context.SaveChangesAsync();
 
-            // Obtener el ID del proveedor recién creado
             var pedidoId = model.Pedidos.IdPedidos;
 
             if (!string.IsNullOrEmpty(SelectedProductIds))
@@ -91,17 +105,31 @@ namespace Proyecto.Controllers
         // GET: Pedidos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Pedidos == null)
+            if (id == null)
             {
                 return NotFound();
             }
+            var productosPedidos = await _context.ProductosPedidos
+                .Where(pp => pp.IdPedidos == id)
+                .Include(pp => pp.Producto)
+                .ToListAsync();
+            if (productosPedidos == null || !productosPedidos.Any())
+            {
+                return NotFound();
+            }
+            var proveedores = await _context.Proveedores.ToListAsync();
+            var usuarios = await _context.Usuarios.ToListAsync();
+            var Productos = await _context.Productos.ToListAsync();
 
-            var pedidos = await _context.Pedidos.FindAsync(id);
-            if (pedidos == null)
+            var viewModel = new PedidoEditViewModel
             {
-                return NotFound();
-            }
-            return View("Edit");
+                Pedidos = productosPedidos.First().Pedido,
+                ProductosPedidos = productosPedidos.Select(pp => pp.Producto),
+                Proveedores = proveedores.OrderBy(p => p.Nombre),
+                Usuarios = usuarios.OrderBy(p => p.Nombre),
+                Productos = Productos.OrderBy(p => p.Nombre)
+            };
+            return View(viewModel);
         }
 
         // POST: Pedidos/Edit/5
@@ -109,34 +137,54 @@ namespace Proyecto.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPedidos,IdProveedor,Fecha,IdUsuario")] Pedidos pedidos)
+        public async Task<IActionResult> Edit(int id, PedidoEditViewModel viewModel, string SelectedProductIds)
         {
-            if (id != pedidos.IdPedidos)
+            if (id != viewModel.Pedidos.IdPedidos)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
+            try
             {
-                try
+                var pedidos = await _context.Pedidos.FindAsync(id);
+                if (pedidos == null)
                 {
-                    _context.Update(pedidos);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+
+                pedidos.IdProveedores = viewModel.Pedidos.IdProveedores;
+                pedidos.Fecha = viewModel.Pedidos.Fecha;
+                pedidos.IdUsuario = viewModel.Pedidos.IdUsuario;
+
+                _context.Update(pedidos);
+
+                // Eliminar los productos existentes
+                var productosExistentes = _context.ProductosPedidos.Where(pp => pp.IdPedidos == id);
+                _context.ProductosPedidos.RemoveRange(productosExistentes);
+
+                // Agregar los nuevos productos
+                if (!string.IsNullOrEmpty(SelectedProductIds))
                 {
-                    if (!PedidosExists(pedidos.IdPedidos))
+                    var selectedProductIds = JsonConvert.DeserializeObject<List<int>>(SelectedProductIds);
+
+                    foreach (var productoId in selectedProductIds)
                     {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
+                        var productosPedidos = new ProductosPedidos
+                        {
+                            IdPedidos = id,
+                            IdProducto = productoId
+                        };
+                        _context.ProductosPedidos.Add(productosPedidos);
                     }
                 }
+
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pedidos);
+            catch (DbUpdateConcurrencyException)
+            {
+                // Manejo de excepciones en caso de concurrencia
+                return View(viewModel);
+            }
         }
 
         // GET: Pedidos/Delete/5
