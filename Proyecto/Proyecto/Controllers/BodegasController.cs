@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -60,12 +61,23 @@ namespace Proyecto.Controllers
         }
 
         // GET: Bodegas/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["IdCanton"] = new SelectList(_context.Canton, "IdCanton", "Nombre");
-            ViewData["IdDistrito"] = new SelectList(_context.Distrito, "IdDistrito", "Nombre");
-            ViewData["IdProvincia"] = new SelectList(_context.Provincia, "IdProvincia", "Nombre");
-            return View();
+          
+            var provincias = await _context.Provincia.ToListAsync();
+            var cantones = await _context.Canton.ToListAsync();
+            var distritos = await _context.Distrito.ToListAsync();
+            var Productos = await _context.Productos.ToListAsync();
+            var viewModel = new BodegasModelo
+            {
+                Provincias = provincias.OrderBy(p => p.Nombre),
+                Cantones = cantones.OrderBy(p => p.Nombre),
+                Distritos = distritos.OrderBy(p => p.Nombre),
+                Productos = Productos.OrderBy(p => p.Nombre)
+
+            };
+
+            return View(viewModel);
         }
 
         // POST: Bodegas/Create
@@ -136,58 +148,56 @@ namespace Proyecto.Controllers
 
             try
             {
-                // Deserializar los datos de productos
-                var productos = JsonConvert.DeserializeObject<List<ProductosBodega>>(productosData);
-
-                // Obtener los productos existentes para la bodega
-                var productosExistentes = _context.ProductosBodega.Where(pp => pp.IdBodega == id).ToList();
-
-                // Verificar si los productos existen en la tabla Productos
-                var idsProductosExistentes = _context.Productos.Select(p => p.IdProductos).ToHashSet();
-                var idsProductos = productos.Select(p => p.IdProducto).ToHashSet();
-
-                if (!idsProductos.All(id => idsProductosExistentes.Contains(id)))
-                {
-                    // Manejar el caso cuando uno o más IdProducto no existen
-                    ModelState.AddModelError("", "Uno o más productos no existen en la base de datos.");
-                    return View(bodegas); // O redirige a la página de error
-                }
-
-                // Eliminar los productos que no están en la lista actual
-                var productosIds = productos.Select(p => p.IdProducto).ToHashSet();
-                var productosParaEliminar = productosExistentes.Where(pe => !productosIds.Contains(pe.IdProducto)).ToList();
-                _context.ProductosBodega.RemoveRange(productosParaEliminar);
-
-                // Actualizar o agregar productos
-                foreach (var producto in productos)
-                {
-                    var existingProduct = productosExistentes.FirstOrDefault(p => p.IdProducto == producto.IdProducto);
-
-                    if (existingProduct != null)
-                    {
-                        // Actualizar el producto existente
-                        existingProduct.FechaIngreso = producto.FechaIngreso;
-                        existingProduct.FechaVencimiento = producto.FechaVencimiento;
-                        _context.ProductosBodega.Update(existingProduct);
-                    }
-                    else
-                    {
-                        // Agregar nuevo producto
-                        var nuevoProducto = new ProductosBodega
-                        {
-                            IdBodega = id,
-                            IdProducto = producto.IdProducto,
-                            FechaIngreso = producto.FechaIngreso,
-                            FechaVencimiento = producto.FechaVencimiento,
-                            Cantidad = producto.Cantidad
-                        };
-                        _context.ProductosBodega.Add(nuevoProducto);
-                    }
-                }
-
-                // Actualizar la bodega
                 _context.Update(bodegas);
                 await _context.SaveChangesAsync();
+
+                using (var transaction = await _context.Database.BeginTransactionAsync())
+                {
+                    try
+                    {
+                        // Eliminar los productos existentes para la bodega
+                        var productosExistentes = _context.ProductosBodega.Where(pb => pb.IdBodega == bodegas.IdBodegas);
+                        _context.ProductosBodega.RemoveRange(productosExistentes);
+                        await _context.SaveChangesAsync(); // Guardar cambios antes de agregar nuevos productos
+
+                        // Deserializar los datos de productos
+                        var productosDataList = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(productosData);
+
+                        var productosBodega = new List<ProductosBodega>();
+
+                        // Convertir los datos deserializados en objetos ProductosBodega
+                        foreach (var item in productosDataList)
+                        {
+                            if (int.TryParse(item["IdProducto"], out int idProducto))
+                            {
+                                var productoBodega = new ProductosBodega
+                                {
+                                    IdBodega = bodegas.IdBodegas,
+                                    IdProducto = idProducto,
+                                    FechaIngreso = DateTime.ParseExact(item["FechaIngreso"], "d/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture),
+                                    FechaVencimiento = DateTime.ParseExact(item["FechaVencimiento"], "d/M/yyyy HH:mm:ss", CultureInfo.InvariantCulture)
+                                };
+
+                                productosBodega.Add(productoBodega);
+                            }
+                        }
+
+                        // Agregar nuevos productos a la bodega
+                        _context.ProductosBodega.AddRange(productosBodega);
+
+                        // Guardar todos los cambios en la base de datos
+                        await _context.SaveChangesAsync();
+
+                        // Confirmar la transacción
+                        await transaction.CommitAsync();
+                    }
+                    catch
+                    {
+                        // Deshacer la transacción en caso de error
+                        await transaction.RollbackAsync();
+                        throw;
+                    }
+                }
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -200,22 +210,8 @@ namespace Proyecto.Controllers
                     throw;
                 }
             }
-            catch (Exception ex)
-            {
-                // Manejar excepciones generales
-                ModelState.AddModelError("", $"Se produjo un error: {ex.Message}");
-                return View(bodegas);
-            }
-
             return RedirectToAction(nameof(Index));
         }
-
-
-
-
-
-
-
 
         // GET: Bodegas/Delete/5
         public async Task<IActionResult> Delete(int? id)

@@ -44,7 +44,7 @@
         $('#productosTabla tbody tr').each(function () {
             var row = $(this);
             var product = {
-                Id: row.data('id'),
+                IdProducto: row.data('id'),
                 FechaIngreso: row.find('input[name*="FechaIngreso"]').val(),
                 FechaVencimiento: row.find('input[name*="FechaVencimiento"]').val()
             };
